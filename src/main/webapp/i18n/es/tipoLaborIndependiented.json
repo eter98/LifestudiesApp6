@@ -1,0 +1,10 @@
+{
+  "lifestudiesApp6App": {
+    "TipoLaborIndependiented": {
+      "null": "",
+      "PROFESIONAL_CUENTA_PROPIA": "PROFESIONAL_CUENTA_PROPIA",
+      "ESTABLECIMIENTO_COMERCIO": "ESTABLECIMIENTO_COMERCIO",
+      "CONTRATO_PRESTACION_SERVICIOS": "CONTRATO_PRESTACION_SERVICIOS"
+    }
+  }
+}

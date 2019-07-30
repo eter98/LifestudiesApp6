@@ -1,0 +1,73 @@
+{
+    "name": "Programas",
+    "fields": [
+        {
+            "fieldName": "registro",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "moneda",
+            "fieldType": "Monedad",
+            "fieldValues": "COP,USD,EUR"
+        },
+        {
+            "fieldName": "curso",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "horario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "frecuencia",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "duracion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "foto1",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "foto2",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "institucion",
+            "otherEntityRelationshipName": "programas",
+            "relationshipName": "institucion",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ciudad",
+            "otherEntityRelationshipName": "programas",
+            "relationshipName": "ciudad",
+            "otherEntityField": "nombreCiudad"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tipoPrograma",
+            "otherEntityRelationshipName": "programas",
+            "relationshipName": "tipoPrograma",
+            "otherEntityField": "tipoPrograma"
+        }
+    ],
+    "changelogDate": "20190730133923",
+    "entityTableName": "programas",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

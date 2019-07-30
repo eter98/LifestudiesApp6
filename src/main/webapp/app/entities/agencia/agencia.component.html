@@ -1,0 +1,144 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lifestudiesApp6App.agencia.home.title">Agencias</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-agencia" [routerLink]="['/agencia/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="lifestudiesApp6App.agencia.home.createLabel">
+            Create new Agencia
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'lifestudiesApp6App.agencia.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="agencias?.length === 0">
+        <span jhiTranslate="lifestudiesApp6App.agencia.home.notFound">No agencias found</span>
+    </div>
+    <div class="table-responsive" *ngIf="agencias?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombreAgencia"><span jhiTranslate="lifestudiesApp6App.agencia.nombreAgencia">Nombre Agencia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codigo"><span jhiTranslate="lifestudiesApp6App.agencia.codigo">Codigo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descripcion"><span jhiTranslate="lifestudiesApp6App.agencia.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="encargado"><span jhiTranslate="lifestudiesApp6App.agencia.encargado">Encargado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="direccion"><span jhiTranslate="lifestudiesApp6App.agencia.direccion">Direccion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="telefono"><span jhiTranslate="lifestudiesApp6App.agencia.telefono">Telefono</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="lifestudiesApp6App.agencia.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="whatsapp"><span jhiTranslate="lifestudiesApp6App.agencia.whatsapp">Whatsapp</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="asesor1"><span jhiTranslate="lifestudiesApp6App.agencia.asesor1">Asesor 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fotoAsesor1"><span jhiTranslate="lifestudiesApp6App.agencia.fotoAsesor1">Foto Asesor 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="asesor2"><span jhiTranslate="lifestudiesApp6App.agencia.asesor2">Asesor 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fotoAsesor2"><span jhiTranslate="lifestudiesApp6App.agencia.fotoAsesor2">Foto Asesor 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="asesor3"><span jhiTranslate="lifestudiesApp6App.agencia.asesor3">Asesor 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fotoAsesor3"><span jhiTranslate="lifestudiesApp6App.agencia.fotoAsesor3">Foto Asesor 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="logo"><span jhiTranslate="lifestudiesApp6App.agencia.logo">Logo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="foto1"><span jhiTranslate="lifestudiesApp6App.agencia.foto1">Foto 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="foto2"><span jhiTranslate="lifestudiesApp6App.agencia.foto2">Foto 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sede1"><span jhiTranslate="lifestudiesApp6App.agencia.sede1">Sede 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sede2"><span jhiTranslate="lifestudiesApp6App.agencia.sede2">Sede 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pais.nombrePais"><span jhiTranslate="lifestudiesApp6App.agencia.pais">Pais</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let agencia of agencias ;trackBy: trackId">
+                <td><a [routerLink]="['/agencia', agencia.id, 'view' ]">{{agencia.id}}</a></td>
+                <td>{{agencia.nombreAgencia}}</td>
+                <td>{{agencia.codigo}}</td>
+                <td>{{agencia.descripcion}}</td>
+                <td>{{agencia.encargado}}</td>
+                <td>{{agencia.direccion}}</td>
+                <td>{{agencia.telefono}}</td>
+                <td>{{agencia.email}}</td>
+                <td>{{agencia.whatsapp}}</td>
+                <td>{{agencia.asesor1}}</td>
+                <td>
+                    <a *ngIf="agencia.fotoAsesor1" (click)="openFile(agencia.fotoAsesor1ContentType, agencia.fotoAsesor1)">
+                        <img [src]="'data:' + agencia.fotoAsesor1ContentType + ';base64,' + agencia.fotoAsesor1" style="max-height: 30px;" alt="agencia image"/>
+                    </a>
+                    <span *ngIf="agencia.fotoAsesor1">{{agencia.fotoAsesor1ContentType}}, {{byteSize(agencia.fotoAsesor1)}}</span>
+                </td>
+                <td>{{agencia.asesor2}}</td>
+                <td>
+                    <a *ngIf="agencia.fotoAsesor2" (click)="openFile(agencia.fotoAsesor2ContentType, agencia.fotoAsesor2)">
+                        <img [src]="'data:' + agencia.fotoAsesor2ContentType + ';base64,' + agencia.fotoAsesor2" style="max-height: 30px;" alt="agencia image"/>
+                    </a>
+                    <span *ngIf="agencia.fotoAsesor2">{{agencia.fotoAsesor2ContentType}}, {{byteSize(agencia.fotoAsesor2)}}</span>
+                </td>
+                <td>{{agencia.asesor3}}</td>
+                <td>
+                    <a *ngIf="agencia.fotoAsesor3" (click)="openFile(agencia.fotoAsesor3ContentType, agencia.fotoAsesor3)">
+                        <img [src]="'data:' + agencia.fotoAsesor3ContentType + ';base64,' + agencia.fotoAsesor3" style="max-height: 30px;" alt="agencia image"/>
+                    </a>
+                    <span *ngIf="agencia.fotoAsesor3">{{agencia.fotoAsesor3ContentType}}, {{byteSize(agencia.fotoAsesor3)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="agencia.logo" (click)="openFile(agencia.logoContentType, agencia.logo)">
+                        <img [src]="'data:' + agencia.logoContentType + ';base64,' + agencia.logo" style="max-height: 30px;" alt="agencia image"/>
+                    </a>
+                    <span *ngIf="agencia.logo">{{agencia.logoContentType}}, {{byteSize(agencia.logo)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="agencia.foto1" (click)="openFile(agencia.foto1ContentType, agencia.foto1)">
+                        <img [src]="'data:' + agencia.foto1ContentType + ';base64,' + agencia.foto1" style="max-height: 30px;" alt="agencia image"/>
+                    </a>
+                    <span *ngIf="agencia.foto1">{{agencia.foto1ContentType}}, {{byteSize(agencia.foto1)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="agencia.foto2" (click)="openFile(agencia.foto2ContentType, agencia.foto2)">
+                        <img [src]="'data:' + agencia.foto2ContentType + ';base64,' + agencia.foto2" style="max-height: 30px;" alt="agencia image"/>
+                    </a>
+                    <span *ngIf="agencia.foto2">{{agencia.foto2ContentType}}, {{byteSize(agencia.foto2)}}</span>
+                </td>
+                <td>{{agencia.sede1}}</td>
+                <td>{{agencia.sede2}}</td>
+                <td>
+                    <div *ngIf="agencia.pais">
+                        <a [routerLink]="['../pais', agencia.pais?.id, 'view' ]" >{{agencia.pais?.nombrePais}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/agencia', agencia.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/agencia', agencia.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'agencia', { outlets: { popup: agencia.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

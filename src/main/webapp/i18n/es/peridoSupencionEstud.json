@@ -1,0 +1,11 @@
+{
+  "lifestudiesApp6App": {
+    "PeridoSupencionEstud": {
+      "null": "",
+      "SEIS_MESES": "SEIS_MESES",
+      "UN_ANO": "UN_ANO",
+      "DOS_ANOS": "DOS_ANOS",
+      "MAS_DOS_ANOS": "MAS_DOS_ANOS"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "lifestudiesApp6App": {
+    "pasoCRM": {
+      "home": {
+        "title": "Paso CRMS",
+        "createLabel": "Crear nuevo Paso CRM",
+        "createOrEditLabel": "Crear o editar Paso CRM",
+        "search": "Search for Paso CRM",
+        "notFound": "No Paso CRM found"
+      },
+      "created": "Un nuevo Paso CRM ha sido creado con el identificador {{ param }}",
+      "updated": "Un Paso CRM ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Paso CRM ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Paso CRM {{ id }}?"
+      },
+      "detail": {
+        "title": "Paso CRM"
+      },
+      "codigo": "Codigo",
+      "descripcion": "Descripcion",
+      "duracionDias": "Duracion Dias",
+      "estado": "Estado"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "lifestudiesApp6App": {
+    "Duraciond": {
+      "null": "",
+      "UN_MES": "UN_MES",
+      "DOS_MESES": "DOS_MESES",
+      "TRES_MESES": "TRES_MESES",
+      "CUATRO_MESES": "CUATRO_MESES",
+      "CINCO_MESES": "CINCO_MESES",
+      "SEIS_MESES": "SEIS_MESES",
+      "SIETE_MESES": "SIETE_MESES",
+      "OCHO_MESES": "OCHO_MESES",
+      "NUEVE_MESES": "NUEVE_MESES",
+      "DIEZ_MESES": "DIEZ_MESES",
+      "ONCE_MESES": "ONCE_MESES",
+      "DOCE_MESES": "DOCE_MESES"
+    }
+  }
+}

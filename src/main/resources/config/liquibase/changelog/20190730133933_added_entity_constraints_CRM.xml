@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity CRM.
+    -->
+    <changeSet id="20190730133933-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="usuario_id"
+                                 baseTableName="crm"
+                                 constraintName="fk_crm_usuario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="perfil_usuario"/>
+
+        <addForeignKeyConstraint baseColumnNames="proceso_id"
+                                 baseTableName="crm"
+                                 constraintName="fk_crm_proceso_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="paso_crm"/>
+
+        <addForeignKeyConstraint baseColumnNames="agencia_id"
+                                 baseTableName="crm"
+                                 constraintName="fk_crm_agencia_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="agencia"/>
+
+        <addForeignKeyConstraint baseColumnNames="cotizacion_id"
+                                 baseTableName="crm"
+                                 constraintName="fk_crm_cotizacion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cotizacion"/>
+
+    </changeSet>
+</databaseChangeLog>

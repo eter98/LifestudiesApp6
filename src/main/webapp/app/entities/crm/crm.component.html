@@ -1,0 +1,115 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lifestudiesApp6App.cRM.home.title">CRMS</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-crm" [routerLink]="['/crm/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="lifestudiesApp6App.cRM.home.createLabel">
+            Create new CRM
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'lifestudiesApp6App.cRM.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="cRMS?.length === 0">
+        <span jhiTranslate="lifestudiesApp6App.cRM.home.notFound">No cRMS found</span>
+    </div>
+    <div class="table-responsive" *ngIf="cRMS?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecha"><span jhiTranslate="lifestudiesApp6App.cRM.fecha">Fecha</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descripcion"><span jhiTranslate="lifestudiesApp6App.cRM.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="documento"><span jhiTranslate="lifestudiesApp6App.cRM.documento">Documento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="asesor"><span jhiTranslate="lifestudiesApp6App.cRM.asesor">Asesor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estado"><span jhiTranslate="lifestudiesApp6App.cRM.estado">Estado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoLead"><span jhiTranslate="lifestudiesApp6App.cRM.tipoLead">Tipo Lead</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="comentarios"><span jhiTranslate="lifestudiesApp6App.cRM.comentarios">Comentarios</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cerrado"><span jhiTranslate="lifestudiesApp6App.cRM.cerrado">Cerrado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usuario.identificacion"><span jhiTranslate="lifestudiesApp6App.cRM.usuario">Usuario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="proceso.descripcion"><span jhiTranslate="lifestudiesApp6App.cRM.proceso">Proceso</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="agencia.nombreAgencia"><span jhiTranslate="lifestudiesApp6App.cRM.agencia">Agencia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cotizacion.id"><span jhiTranslate="lifestudiesApp6App.cRM.cotizacion">Cotizacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let cRM of cRMS ;trackBy: trackId">
+                <td><a [routerLink]="['/crm', cRM.id, 'view' ]">{{cRM.id}}</a></td>
+                <td>{{cRM.fecha | date:'medium'}}</td>
+                <td>{{cRM.descripcion}}</td>
+                <td>
+                    <a *ngIf="cRM.documento" (click)="openFile(cRM.documentoContentType, cRM.documento)">
+                        <img [src]="'data:' + cRM.documentoContentType + ';base64,' + cRM.documento" style="max-height: 30px;" alt="cRM image"/>
+                    </a>
+                    <span *ngIf="cRM.documento">{{cRM.documentoContentType}}, {{byteSize(cRM.documento)}}</span>
+                </td>
+                <td jhiTranslate="{{'lifestudiesApp6App.Asesord.' + cRM.asesor}}">{{cRM.asesor}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.Estadod.' + cRM.estado}}">{{cRM.estado}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.TipoLeadd.' + cRM.tipoLead}}">{{cRM.tipoLead}}</td>
+                <td>{{cRM.comentarios}}</td>
+                <td>{{cRM.cerrado}}</td>
+                <td>
+                    <div *ngIf="cRM.usuario">
+                        <a [routerLink]="['../perfil-usuario', cRM.usuario?.id, 'view' ]" >{{cRM.usuario?.identificacion}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="cRM.proceso">
+                        <a [routerLink]="['../paso-crm', cRM.proceso?.id, 'view' ]" >{{cRM.proceso?.descripcion}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="cRM.agencia">
+                        <a [routerLink]="['../agencia', cRM.agencia?.id, 'view' ]" >{{cRM.agencia?.nombreAgencia}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="cRM.cotizacion">
+                        <a [routerLink]="['../cotizacion', cRM.cotizacion?.id, 'view' ]" >{{cRM.cotizacion?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/crm', cRM.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/crm', cRM.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'crm', { outlets: { popup: cRM.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

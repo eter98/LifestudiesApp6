@@ -1,0 +1,57 @@
+{
+  "lifestudiesApp6App": {
+    "institucion": {
+      "home": {
+        "title": "Institucions",
+        "createLabel": "Criar novo Institucion",
+        "createOrEditLabel": "Criar ou editar Institucion",
+        "search": "Pesquisar por Institucion",
+        "notFound": "Nenhum Institucion encontrado"
+      },
+      "created": "Um novo Institucion foi criado com o identificador {{ param }}",
+      "updated": "Um Institucion foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Institucion foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Institucion {{ id }}?"
+      },
+      "detail": {
+        "title": "Institucion"
+      },
+      "codigo": "Codigo",
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "direccion": "Direccion",
+      "website": "Website",
+      "contacto": "Contacto",
+      "representante": "Representante",
+      "skype": "Skype",
+      "telefono": "Telefono",
+      "estatus": "Estatus",
+      "tipoProgramas": "Tipo Programas",
+      "programaEstandar": "Programa Estandar",
+      "programaIntensivo": "Programa Intensivo",
+      "programaNegocios": "Programa Negocios",
+      "preparacionExamen": "Preparacion Examen",
+      "programaAcademico": "Programa Academico",
+      "descuento": "Descuento",
+      "inscripcion": "Inscripcion",
+      "materiales": "Materiales",
+      "seguroMedico": "Seguro Medico",
+      "alojamientoSencillo": "Alojamiento Sencillo",
+      "alojamientoDoble": "Alojamiento Doble",
+      "transporteAeropuerto": "Transporte Aeropuerto",
+      "tipoCurso": "Tipo Curso",
+      "temporadaAlta": "Temporada Alta",
+      "temporadaBaja": "Temporada Baja",
+      "fechaInicial": "Fecha Inicial",
+      "horarios": "Horarios",
+      "instalaciones": "Instalaciones",
+      "nacionalidad": "Nacionalidad",
+      "logo": "Logo",
+      "foto1": "Foto 1",
+      "foto2": "Foto 2",
+      "foto3": "Foto 3",
+      "ciudad": "Ciudad"
+    }
+  }
+}

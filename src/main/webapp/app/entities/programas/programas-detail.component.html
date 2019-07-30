@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="programas">
+            <h2><span jhiTranslate="lifestudiesApp6App.programas.detail.title">Programas</span> {{programas.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lifestudiesApp6App.programas.registro">Registro</span></dt>
+                <dd>
+                    <span>{{programas.registro}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.programas.moneda">Moneda</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lifestudiesApp6App.Monedad.' + programas.moneda}}">{{programas.moneda}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.programas.curso">Curso</span></dt>
+                <dd>
+                    <span>{{programas.curso}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.programas.horario">Horario</span></dt>
+                <dd>
+                    <span>{{programas.horario}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.programas.frecuencia">Frecuencia</span></dt>
+                <dd>
+                    <span>{{programas.frecuencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.programas.duracion">Duracion</span></dt>
+                <dd>
+                    <span>{{programas.duracion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.programas.foto1">Foto 1</span></dt>
+                <dd>
+                    <div *ngIf="programas.foto1">
+                        <a (click)="openFile(programas.foto1ContentType, programas.foto1)">
+                            <img [src]="'data:' + programas.foto1ContentType + ';base64,' + programas.foto1" style="max-width: 100%;" alt="programas image"/>
+                        </a>
+                        {{programas.foto1ContentType}}, {{byteSize(programas.foto1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.programas.foto2">Foto 2</span></dt>
+                <dd>
+                    <div *ngIf="programas.foto2">
+                        <a (click)="openFile(programas.foto2ContentType, programas.foto2)">
+                            <img [src]="'data:' + programas.foto2ContentType + ';base64,' + programas.foto2" style="max-width: 100%;" alt="programas image"/>
+                        </a>
+                        {{programas.foto2ContentType}}, {{byteSize(programas.foto2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.programas.institucion">Institucion</span></dt>
+                <dd>
+                    <div *ngIf="programas.institucion">
+                        <a [routerLink]="['/institucion', programas.institucion?.id, 'view']">{{programas.institucion?.nombre}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.programas.ciudad">Ciudad</span></dt>
+                <dd>
+                    <div *ngIf="programas.ciudad">
+                        <a [routerLink]="['/ciudad', programas.ciudad?.id, 'view']">{{programas.ciudad?.nombreCiudad}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.programas.tipoPrograma">Tipo Programa</span></dt>
+                <dd>
+                    <div *ngIf="programas.tipoPrograma">
+                        <a [routerLink]="['/tipo-programa', programas.tipoPrograma?.id, 'view']">{{programas.tipoPrograma?.tipoPrograma}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/programas', programas.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

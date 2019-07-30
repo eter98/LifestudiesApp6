@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="experiencia">
+            <h2><span jhiTranslate="lifestudiesApp6App.experiencia.detail.title">Experiencia</span> {{experiencia.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.identificacion">Identificacion</span></dt>
+                <dd>
+                    <span>{{experiencia.identificacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{experiencia.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.apellido">Apellido</span></dt>
+                <dd>
+                    <span>{{experiencia.apellido}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.mail">Mail</span></dt>
+                <dd>
+                    <span>{{experiencia.mail}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.area">Area</span></dt>
+                <dd>
+                    <span>{{experiencia.area}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{experiencia.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.nacionalidad">Nacionalidad</span></dt>
+                <dd>
+                    <span>{{experiencia.nacionalidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.paisDestino">Pais Destino</span></dt>
+                <dd>
+                    <span>{{experiencia.paisDestino}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.calificaPais">Califica Pais</span></dt>
+                <dd>
+                    <span>{{experiencia.calificaPais}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.programa">Programa</span></dt>
+                <dd>
+                    <span>{{experiencia.programa}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.institucion">Institucion</span></dt>
+                <dd>
+                    <span>{{experiencia.institucion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.calificaInstitucion">Califica Institucion</span></dt>
+                <dd>
+                    <span>{{experiencia.calificaInstitucion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.agencia">Agencia</span></dt>
+                <dd>
+                    <span>{{experiencia.agencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.calificaAgencia">Califica Agencia</span></dt>
+                <dd>
+                    <span>{{experiencia.calificaAgencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{experiencia.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.contenido">Contenido</span></dt>
+                <dd>
+                    <span>{{experiencia.contenido}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.experiencia.foto">Foto</span></dt>
+                <dd>
+                    <div *ngIf="experiencia.foto">
+                        <a (click)="openFile(experiencia.fotoContentType, experiencia.foto)">
+                            <img [src]="'data:' + experiencia.fotoContentType + ';base64,' + experiencia.foto" style="max-width: 100%;" alt="experiencia image"/>
+                        </a>
+                        {{experiencia.fotoContentType}}, {{byteSize(experiencia.foto)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/experiencia', experiencia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

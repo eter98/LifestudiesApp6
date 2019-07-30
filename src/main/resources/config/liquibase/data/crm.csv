@@ -1,0 +1,11 @@
+id;fecha;descripcion;documento;documento_content_type;asesor;estado;tipo_lead;comentarios;cerrado
+1;2019-07-29T16:09:07;calculating;../data/blob/hipster.png;image/png;CatalinaFranco;EnProceso;AltaPrioridad;../data/blob/hipster.txt;true
+2;2019-07-30T08:21:54;index Montenegro Tuna;../data/blob/hipster.png;image/png;CatalinaFranco;Finalizado;BajaPrioridad;../data/blob/hipster.txt;false
+3;2019-07-30T02:05:31;seamless;../data/blob/hipster.png;image/png;CatalinaFranco;Finalizado;AltaPrioridad;../data/blob/hipster.txt;true
+4;2019-07-30T09:50:24;Fish Practical solid state;../data/blob/hipster.png;image/png;CarlosFranco;Expirado;MediaPrioridad;../data/blob/hipster.txt;false
+5;2019-07-30T08:32:07;invoice Pizza;../data/blob/hipster.png;image/png;CarlosFranco;Expirado;MediaPrioridad;../data/blob/hipster.txt;false
+6;2019-07-30T01:29:48;scale Regional Books;../data/blob/hipster.png;image/png;CarlosFranco;EnProceso;MediaPrioridad;../data/blob/hipster.txt;true
+7;2019-07-30T00:40:45;convergence;../data/blob/hipster.png;image/png;CarlosFranco;Expirado;BajaPrioridad;../data/blob/hipster.txt;false
+8;2019-07-29T21:24:19;Money Market Account;../data/blob/hipster.png;image/png;CatalinaFranco;Pendiente;MediaPrioridad;../data/blob/hipster.txt;true
+9;2019-07-30T09:44:57;salmon;../data/blob/hipster.png;image/png;CatalinaFranco;Expirado;BajaPrioridad;../data/blob/hipster.txt;true
+10;2019-07-29T16:35:07;Checking Account Seamless;../data/blob/hipster.png;image/png;CatalinaFranco;Pendiente;BajaPrioridad;../data/blob/hipster.txt;false

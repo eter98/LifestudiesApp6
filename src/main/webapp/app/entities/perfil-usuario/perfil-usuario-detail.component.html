@@ -1,0 +1,168 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="perfilUsuario">
+            <h2><span jhiTranslate="lifestudiesApp6App.perfilUsuario.detail.title">Perfil Usuario</span> {{perfilUsuario.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.fechaNacimiento">Fecha Nacimiento</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.fechaNacimiento}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.identificacion">Identificacion</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.identificacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.mail">Mail</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.mail}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.area">Area</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.area}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.nivelAcademico">Nivel Academico</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.nivelAcademico}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.areaAcademica">Area Academica</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.areaAcademica}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.terminoAcademico">Termino Academico</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.terminoAcademico}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.puntajeICFES">Puntaje ICFES</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.puntajeICFES}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.promedioAcademico">Promedio Academico</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.promedioAcademico}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.dominioIdioma">Dominio Idioma</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.dominioIdioma}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.idiomas">Idiomas</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.idiomas}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.examenIdioma">Examen Idioma</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.examenIdioma}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.examenRealizado">Examen Realizado</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.examenRealizado}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.puntajeIdioma">Puntaje Idioma</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.puntajeIdioma}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.becaOtorgada">Beca Otorgada</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.becaOtorgada}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.tipoBeca">Tipo Beca</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.tipoBeca}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.becaInstitucion">Beca Institucion</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.becaInstitucion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.grupoSocial">Grupo Social</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.grupoSocial}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.fundacion">Fundacion</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.fundacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.monitor">Monitor</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.monitor}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.monitorMateria">Monitor Materia</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.monitorMateria}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.logrosAcademicos">Logros Academicos</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.logrosAcademicos}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.experienciaLaboral">Experiencia Laboral</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.experienciaLaboral}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.areaLaboral">Area Laboral</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.areaLaboral}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.programarealizar">Programarealizar</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.programarealizar}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.programaArea">Programa Area</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.programaArea}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.fechaInicio">Fecha Inicio</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.fechaInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.programaEncontrado">Programa Encontrado</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.programaEncontrado}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.nombrePrograma">Nombre Programa</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.nombrePrograma}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.universidad">Universidad</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.universidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.pais">Pais</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.pais}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.merecedorBeca">Merecedor Beca</span></dt>
+                <dd>
+                    <span>{{perfilUsuario.merecedorBeca}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.foto">Foto</span></dt>
+                <dd>
+                    <div *ngIf="perfilUsuario.foto">
+                        <a (click)="openFile(perfilUsuario.fotoContentType, perfilUsuario.foto)">
+                            <img [src]="'data:' + perfilUsuario.fotoContentType + ';base64,' + perfilUsuario.foto" style="max-width: 100%;" alt="perfilUsuario image"/>
+                        </a>
+                        {{perfilUsuario.fotoContentType}}, {{byteSize(perfilUsuario.foto)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.perfilUsuario.usuario">Usuario</span></dt>
+                <dd>
+                    {{perfilUsuario.usuario?.login}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/perfil-usuario', perfilUsuario.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

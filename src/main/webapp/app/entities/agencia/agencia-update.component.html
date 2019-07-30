@@ -1,0 +1,198 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-agencia-heading" jhiTranslate="lifestudiesApp6App.agencia.home.createOrEditLabel">Create or edit a Agencia</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.nombreAgencia" for="field_nombreAgencia">Nombre Agencia</label>
+                    <input type="text" class="form-control" name="nombreAgencia" id="field_nombreAgencia"
+                           formControlName="nombreAgencia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.codigo" for="field_codigo">Codigo</label>
+                    <input type="text" class="form-control" name="codigo" id="field_codigo"
+                           formControlName="codigo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.descripcion" for="field_descripcion">Descripcion</label>
+                    <textarea class="form-control" name="descripcion" id="field_descripcion"
+                              formControlName="descripcion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.encargado" for="field_encargado">Encargado</label>
+                    <input type="text" class="form-control" name="encargado" id="field_encargado"
+                           formControlName="encargado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.direccion" for="field_direccion">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" id="field_direccion"
+                           formControlName="direccion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.telefono" for="field_telefono">Telefono</label>
+                    <input type="text" class="form-control" name="telefono" id="field_telefono"
+                           formControlName="telefono"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.whatsapp" for="field_whatsapp">Whatsapp</label>
+                    <input type="text" class="form-control" name="whatsapp" id="field_whatsapp"
+                           formControlName="whatsapp"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.asesor1" for="field_asesor1">Asesor 1</label>
+                    <input type="text" class="form-control" name="asesor1" id="field_asesor1"
+                           formControlName="asesor1"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.fotoAsesor1" for="field_fotoAsesor1">Foto Asesor 1</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('fotoAsesor1ContentType').value + ';base64,' + editForm.get('fotoAsesor1').value" style="max-height: 100px;" *ngIf="editForm.get('fotoAsesor1').value" alt="agencia image"/>
+                        <div *ngIf="editForm.get('fotoAsesor1').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('fotoAsesor1ContentType').value}}, {{byteSize(editForm.get('fotoAsesor1').value)}}</span>
+                            <button type="button" (click)="clearInputImage('fotoAsesor1', 'fotoAsesor1ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_fotoAsesor1" (change)="setFileData($event, 'fotoAsesor1', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="fotoAsesor1" id="field_fotoAsesor1"
+                           formControlName="fotoAsesor1"/>
+                    <input type="hidden" class="form-control" name="fotoAsesor1ContentType" id="field_fotoAsesor1ContentType"
+                           formControlName="fotoAsesor1ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.asesor2" for="field_asesor2">Asesor 2</label>
+                    <input type="text" class="form-control" name="asesor2" id="field_asesor2"
+                           formControlName="asesor2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.fotoAsesor2" for="field_fotoAsesor2">Foto Asesor 2</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('fotoAsesor2ContentType').value + ';base64,' + editForm.get('fotoAsesor2').value" style="max-height: 100px;" *ngIf="editForm.get('fotoAsesor2').value" alt="agencia image"/>
+                        <div *ngIf="editForm.get('fotoAsesor2').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('fotoAsesor2ContentType').value}}, {{byteSize(editForm.get('fotoAsesor2').value)}}</span>
+                            <button type="button" (click)="clearInputImage('fotoAsesor2', 'fotoAsesor2ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_fotoAsesor2" (change)="setFileData($event, 'fotoAsesor2', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="fotoAsesor2" id="field_fotoAsesor2"
+                           formControlName="fotoAsesor2"/>
+                    <input type="hidden" class="form-control" name="fotoAsesor2ContentType" id="field_fotoAsesor2ContentType"
+                           formControlName="fotoAsesor2ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.asesor3" for="field_asesor3">Asesor 3</label>
+                    <input type="text" class="form-control" name="asesor3" id="field_asesor3"
+                           formControlName="asesor3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.fotoAsesor3" for="field_fotoAsesor3">Foto Asesor 3</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('fotoAsesor3ContentType').value + ';base64,' + editForm.get('fotoAsesor3').value" style="max-height: 100px;" *ngIf="editForm.get('fotoAsesor3').value" alt="agencia image"/>
+                        <div *ngIf="editForm.get('fotoAsesor3').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('fotoAsesor3ContentType').value}}, {{byteSize(editForm.get('fotoAsesor3').value)}}</span>
+                            <button type="button" (click)="clearInputImage('fotoAsesor3', 'fotoAsesor3ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_fotoAsesor3" (change)="setFileData($event, 'fotoAsesor3', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="fotoAsesor3" id="field_fotoAsesor3"
+                           formControlName="fotoAsesor3"/>
+                    <input type="hidden" class="form-control" name="fotoAsesor3ContentType" id="field_fotoAsesor3ContentType"
+                           formControlName="fotoAsesor3ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.logo" for="field_logo">Logo</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('logoContentType').value + ';base64,' + editForm.get('logo').value" style="max-height: 100px;" *ngIf="editForm.get('logo').value" alt="agencia image"/>
+                        <div *ngIf="editForm.get('logo').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('logoContentType').value}}, {{byteSize(editForm.get('logo').value)}}</span>
+                            <button type="button" (click)="clearInputImage('logo', 'logoContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_logo" (change)="setFileData($event, 'logo', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="logo" id="field_logo"
+                           formControlName="logo"/>
+                    <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
+                           formControlName="logoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.foto1" for="field_foto1">Foto 1</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('foto1ContentType').value + ';base64,' + editForm.get('foto1').value" style="max-height: 100px;" *ngIf="editForm.get('foto1').value" alt="agencia image"/>
+                        <div *ngIf="editForm.get('foto1').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('foto1ContentType').value}}, {{byteSize(editForm.get('foto1').value)}}</span>
+                            <button type="button" (click)="clearInputImage('foto1', 'foto1ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto1" (change)="setFileData($event, 'foto1', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto1" id="field_foto1"
+                           formControlName="foto1"/>
+                    <input type="hidden" class="form-control" name="foto1ContentType" id="field_foto1ContentType"
+                           formControlName="foto1ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.foto2" for="field_foto2">Foto 2</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('foto2ContentType').value + ';base64,' + editForm.get('foto2').value" style="max-height: 100px;" *ngIf="editForm.get('foto2').value" alt="agencia image"/>
+                        <div *ngIf="editForm.get('foto2').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('foto2ContentType').value}}, {{byteSize(editForm.get('foto2').value)}}</span>
+                            <button type="button" (click)="clearInputImage('foto2', 'foto2ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto2" (change)="setFileData($event, 'foto2', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto2" id="field_foto2"
+                           formControlName="foto2"/>
+                    <input type="hidden" class="form-control" name="foto2ContentType" id="field_foto2ContentType"
+                           formControlName="foto2ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.sede1" for="field_sede1">Sede 1</label>
+                    <input type="text" class="form-control" name="sede1" id="field_sede1"
+                           formControlName="sede1"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.sede2" for="field_sede2">Sede 2</label>
+                    <input type="text" class="form-control" name="sede2" id="field_sede2"
+                           formControlName="sede2"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.agencia.pais" for="field_pais">Pais</label>
+                    <select class="form-control" id="field_pais" name="pais" formControlName="pais">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paisOption.id === editForm.get('pais').value?.id ? editForm.get('pais').value : paisOption" *ngFor="let paisOption of pais; trackBy: trackPaisById">{{paisOption.nombrePais}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

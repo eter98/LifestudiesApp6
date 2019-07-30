@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Institucion.
+    -->
+    <changeSet id="20190730133922-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="ciudad_id"
+                                 baseTableName="institucion"
+                                 constraintName="fk_institucion_ciudad_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ciudad"/>
+
+    </changeSet>
+</databaseChangeLog>

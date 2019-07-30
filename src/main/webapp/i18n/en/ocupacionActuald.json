@@ -1,0 +1,12 @@
+{
+  "lifestudiesApp6App": {
+    "OcupacionActuald": {
+      "null": "",
+      "Estudiante": "Estudiante",
+      "Estudiante_Graduado_sin_Laborar": "Estudiante_Graduado_sin_Laborar",
+      "Empleado": "Empleado",
+      "Independiente": "Independiente",
+      "Desempleado": "Desempleado"
+    }
+  }
+}

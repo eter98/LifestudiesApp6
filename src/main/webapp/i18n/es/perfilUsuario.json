@@ -1,0 +1,57 @@
+{
+  "lifestudiesApp6App": {
+    "perfilUsuario": {
+      "home": {
+        "title": "Perfil Usuarios",
+        "createLabel": "Crear nuevo Perfil Usuario",
+        "createOrEditLabel": "Crear o editar Perfil Usuario",
+        "search": "Search for Perfil Usuario",
+        "notFound": "No Perfil Usuario found"
+      },
+      "created": "Un nuevo Perfil Usuario ha sido creado con el identificador {{ param }}",
+      "updated": "Un Perfil Usuario ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Perfil Usuario ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Perfil Usuario {{ id }}?"
+      },
+      "detail": {
+        "title": "Perfil Usuario"
+      },
+      "fechaNacimiento": "Fecha Nacimiento",
+      "identificacion": "Identificacion",
+      "mail": "Mail",
+      "area": "Area",
+      "telefono": "Telefono",
+      "nivelAcademico": "Nivel Academico",
+      "areaAcademica": "Area Academica",
+      "terminoAcademico": "Termino Academico",
+      "puntajeICFES": "Puntaje ICFES",
+      "promedioAcademico": "Promedio Academico",
+      "dominioIdioma": "Dominio Idioma",
+      "idiomas": "Idiomas",
+      "examenIdioma": "Examen Idioma",
+      "examenRealizado": "Examen Realizado",
+      "puntajeIdioma": "Puntaje Idioma",
+      "becaOtorgada": "Beca Otorgada",
+      "tipoBeca": "Tipo Beca",
+      "becaInstitucion": "Beca Institucion",
+      "grupoSocial": "Grupo Social",
+      "fundacion": "Fundacion",
+      "monitor": "Monitor",
+      "monitorMateria": "Monitor Materia",
+      "logrosAcademicos": "Logros Academicos",
+      "experienciaLaboral": "Experiencia Laboral",
+      "areaLaboral": "Area Laboral",
+      "programarealizar": "Programarealizar",
+      "programaArea": "Programa Area",
+      "fechaInicio": "Fecha Inicio",
+      "programaEncontrado": "Programa Encontrado",
+      "nombrePrograma": "Nombre Programa",
+      "universidad": "Universidad",
+      "pais": "Pais",
+      "merecedorBeca": "Merecedor Beca",
+      "foto": "Foto",
+      "usuario": "Usuario"
+    }
+  }
+}

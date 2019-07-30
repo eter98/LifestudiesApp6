@@ -1,0 +1,12 @@
+{
+  "lifestudiesApp6App": {
+    "EstadoCivild": {
+      "null": "",
+      "Soltero": "Soltero",
+      "Casado": "Casado",
+      "Viudo": "Viudo",
+      "Separado": "Separado",
+      "Union_Libre": "Union_Libre"
+    }
+  }
+}

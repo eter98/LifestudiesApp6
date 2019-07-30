@@ -1,0 +1,29 @@
+{
+  "lifestudiesApp6App": {
+    "cotizacion": {
+      "home": {
+        "title": "Cotizacions",
+        "createLabel": "Create a new Cotizacion",
+        "createOrEditLabel": "Create or edit a Cotizacion",
+        "search": "Search for Cotizacion",
+        "notFound": "No Cotizacion found"
+      },
+      "created": "A new Cotizacion is created with identifier {{ param }}",
+      "updated": "A Cotizacion is updated with identifier {{ param }}",
+      "deleted": "A Cotizacion is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cotizacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Cotizacion"
+      },
+      "fechaViaje": "Fecha Viaje",
+      "alojamiento": "Alojamiento",
+      "pasajeAereo": "Pasaje Aereo",
+      "transpAeropuerto": "Transp Aeropuerto",
+      "usario": "Usario",
+      "curso": "Curso",
+      "cRM": "C RM"
+    }
+  }
+}

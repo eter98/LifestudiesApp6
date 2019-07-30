@@ -1,0 +1,224 @@
+{
+    "name": "ViabilidadVisa",
+    "fields": [
+        {
+            "fieldName": "destino",
+            "fieldType": "Destinod",
+            "fieldValues": "ALEMANIA,AUSTRALIA,CANADA,ESPANA,ESTADOS_UNIDOS,FRANCIA,INGLATERRA,IRLANDA,ITALIA,JAPON,MALTA,NUEVA_ZELANDA,SUDAFRICA,SUIZA"
+        },
+        {
+            "fieldName": "tipoPrograma",
+            "fieldType": "TipoProgramad",
+            "fieldValues": "Programas_Idiomas,Curso_Verano_idiomas,Programa_preparacion_Examenes_idioma,Programa_Pregrado,Programa_Posgrado,Programas_Cortos_Ejecutivos"
+        },
+        {
+            "fieldName": "duracion",
+            "fieldType": "Duraciond",
+            "fieldValues": "UN_MES,DOS_MESES,TRES_MESES,CUATRO_MESES,CINCO_MESES,SEIS_MESES,SIETE_MESES,OCHO_MESES,NUEVE_MESES,DIEZ_MESES,ONCE_MESES,DOCE_MESES"
+        },
+        {
+            "fieldName": "nacionalidadPrincipal",
+            "fieldType": "Nacionalidadd",
+            "fieldValues": "Argentina,Bolivia,Brasil,Chile,Colombia,Costa_Rica,Ecuador,Guatemala,Honduras,Mexico,Nicaragua,Panama,Paraguay,Peru,Uruguay,Venezuela"
+        },
+        {
+            "fieldName": "otraNacionalidad",
+            "fieldType": "Nacionalidadd",
+            "fieldValues": "Argentina,Bolivia,Brasil,Chile,Colombia,Costa_Rica,Ecuador,Guatemala,Honduras,Mexico,Nicaragua,Panama,Paraguay,Peru,Uruguay,Venezuela"
+        },
+        {
+            "fieldName": "fechaNacimiento",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "genero",
+            "fieldType": "Generod",
+            "fieldValues": "Hombre,Mujer,LBGTI,Indeterminado"
+        },
+        {
+            "fieldName": "estadoCivil",
+            "fieldType": "EstadoCivild",
+            "fieldValues": "Soltero,Casado,Viudo,Separado,Union_Libre"
+        },
+        {
+            "fieldName": "viajaAcompanado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "personasCargo",
+            "fieldType": "PersonasCargod",
+            "fieldValues": "NINGUNA,UNA,DOS,TRES,MAS_DE_CUATRO"
+        },
+        {
+            "fieldName": "nivelAcademico",
+            "fieldType": "NivelAcademicod",
+            "fieldValues": "PRIMARIA,SECUNDARIA,PREGRADO,POSGRADO,DOCTORADO"
+        },
+        {
+            "fieldName": "profesion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaGadruacion",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "ocupacionActual",
+            "fieldType": "OcupacionActuald",
+            "fieldValues": "Estudiante,Estudiante_Graduado_sin_Laborar,Empleado,Independiente,Desempleado"
+        },
+        {
+            "fieldName": "carta",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "suspendidoEstudios",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "peridoSupencionEstu",
+            "fieldType": "PeridoSupencionEstud",
+            "fieldValues": "SEIS_MESES,UN_ANO,DOS_ANOS,MAS_DOS_ANOS"
+        },
+        {
+            "fieldName": "razonSuspencion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipoContrato",
+            "fieldType": "TipoContratod",
+            "fieldValues": "TERMINO_FIJO,TERMINO_INDEFNIDO,PRESTACION_SERVICIOS"
+        },
+        {
+            "fieldName": "licenciaLaboral",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "nivelSalarial",
+            "fieldType": "NivelSalariald",
+            "fieldValues": "MENOS_US600,US700_US1000,US1000_US1500,US1500_US2000,SUPERIOR_US2000"
+        },
+        {
+            "fieldName": "tipoLaborIndependiente",
+            "fieldType": "TipoLaborIndependiented",
+            "fieldValues": "PROFESIONAL_CUENTA_PROPIA,ESTABLECIMIENTO_COMERCIO,CONTRATO_PRESTACION_SERVICIOS"
+        },
+        {
+            "fieldName": "tiempoIndependiente",
+            "fieldType": "PeridoSupencionEstud",
+            "fieldValues": "SEIS_MESES,UN_ANO,DOS_ANOS,MAS_DOS_ANOS"
+        },
+        {
+            "fieldName": "nivelIngresosIndependiente",
+            "fieldType": "NivelSalariald",
+            "fieldValues": "MENOS_US600,US700_US1000,US1000_US1500,US1500_US2000,SUPERIOR_US2000"
+        },
+        {
+            "fieldName": "tiempoDesempleado",
+            "fieldType": "PeridoSupencionEstud",
+            "fieldValues": "SEIS_MESES,UN_ANO,DOS_ANOS,MAS_DOS_ANOS"
+        },
+        {
+            "fieldName": "quienFinanciaEstudios",
+            "fieldType": "QuienFinanciaEstudiosd",
+            "fieldValues": "Tu_mismo,Un_familiar,Empleador,Beca_total,Beca_Parcial"
+        },
+        {
+            "fieldName": "parentesco",
+            "fieldType": "Parentescod",
+            "fieldValues": "Padre_Madre,Hermano,Abuelos,Tios,Otros"
+        },
+        {
+            "fieldName": "presupuestoDisponible",
+            "fieldType": "NivelSalariald",
+            "fieldValues": "MENOS_US600,US700_US1000,US1000_US1500,US1500_US2000,SUPERIOR_US2000"
+        },
+        {
+            "fieldName": "ahorroDisponible",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "idioma",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "certificarIdioma",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "certificacionIdioma",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "puntajeCertificacion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "salidasPais",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paisesVisitados",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "visaPais",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estudiadoAnterior",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fueraPais",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "paisFuera",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "extenderEstadia",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "negadoVisa",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "paisNegado",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "familiaresDestino",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estatusMigratorio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apelliod",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "correo",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190730133930",
+    "entityTableName": "viabilidad_visa",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

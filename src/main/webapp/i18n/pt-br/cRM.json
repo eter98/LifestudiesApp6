@@ -1,0 +1,34 @@
+{
+  "lifestudiesApp6App": {
+    "cRM": {
+      "home": {
+        "title": "CRMS",
+        "createLabel": "Criar novo CRM",
+        "createOrEditLabel": "Criar ou editar CRM",
+        "search": "Pesquisar por CRM",
+        "notFound": "Nenhum CRM encontrado"
+      },
+      "created": "Um novo CRM foi criado com o identificador {{ param }}",
+      "updated": "Um CRM foi atualizado com o identificador {{ param }}",
+      "deleted": "Um CRM foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir CRM {{ id }}?"
+      },
+      "detail": {
+        "title": "CRM"
+      },
+      "fecha": "Fecha",
+      "descripcion": "Descripcion",
+      "documento": "Documento",
+      "asesor": "Asesor",
+      "estado": "Estado",
+      "tipoLead": "Tipo Lead",
+      "comentarios": "Comentarios",
+      "cerrado": "Cerrado",
+      "usuario": "Usuario",
+      "proceso": "Proceso",
+      "agencia": "Agencia",
+      "cotizacion": "Cotizacion"
+    }
+  }
+}

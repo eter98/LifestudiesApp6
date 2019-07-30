@@ -1,0 +1,352 @@
+entity Institucion{
+	codigo String,
+	nombre String,
+    descripcion TextBlob,
+    direccion String,
+    website String,
+    contacto String,
+    representante String,
+    skype String,
+    telefono String,
+    estatus String,
+    tipoProgramas String,
+    programaEstandar String,
+    programaIntensivo String,
+    programaNegocios String,
+    preparacionExamen String,
+    programaAcademico String,
+    descuento Integer,
+    inscripcion String,
+    materiales String,
+    seguroMedico String,
+    alojamientoSencillo String,
+    alojamientoDoble String,
+    transporteAeropuerto String,
+    tipoCurso String,
+    temporadaAlta String,
+    temporadaBaja String,
+    fechaInicial LocalDate,
+    horarios String,
+    instalaciones String,
+    nacionalidad String,
+    logo ImageBlob,
+    foto1 ImageBlob,
+    foto2 ImageBlob,
+    foto3 ImageBlob
+}
+
+entity Programas {
+	registro Integer,
+    moneda Monedad,
+    curso String,
+    horario String,
+    frecuencia Integer,
+    duracion Integer,
+    foto1 ImageBlob,
+    foto2 ImageBlob
+
+}
+
+entity TipoPrograma {
+	tipoPrograma String
+}
+
+entity Cotizacion{
+	fechaViaje LocalDate,
+    alojamiento Boolean,
+    pasajeAereo Boolean,
+    transpAeropuerto Boolean   
+}
+
+entity PerfilUsuario{
+    fechaNacimiento LocalDate,
+    identificacion Integer,
+	mail String,
+    area Integer,
+    telefono Integer,
+    nivelAcademico String,
+    areaAcademica String,
+    terminoAcademico Integer,
+    puntajeICFES Integer,
+    promedioAcademico Integer,
+    dominioIdioma Boolean,
+    idiomas String,
+    examenIdioma Boolean,
+    examenRealizado String,
+    puntajeIdioma Integer,
+    becaOtorgada Boolean,
+    tipoBeca Integer,
+    becaInstitucion String,
+    grupoSocial Boolean,
+    fundacion String,
+    monitor Boolean,
+    monitorMateria String,
+    logrosAcademicos String,
+    experienciaLaboral Boolean,
+    areaLaboral String,
+    programarealizar Integer,
+    programaArea String,
+    fechaInicio LocalDate,
+    programaEncontrado Boolean,
+    nombrePrograma String,
+    universidad String,
+    pais Integer,
+    merecedorBeca String,
+    foto ImageBlob
+}
+
+entity Agencia {
+	nombreAgencia String,
+    codigo String,
+    descripcion TextBlob,
+    encargado String,
+    direccion String,
+    telefono String,
+    email String,
+    whatsapp String,
+    asesor1 String,
+    fotoAsesor1 ImageBlob,
+    asesor2 String,
+    fotoAsesor2 ImageBlob,
+    asesor3 String,
+    fotoAsesor3 ImageBlob,
+    logo ImageBlob,
+    foto1 ImageBlob,
+    foto2 ImageBlob,
+    sede1 String,
+    sede2 String   
+}
+
+
+entity Pais{
+	nombrePais String,
+    codigoPais String
+}
+entity Ciudad{
+	nombreCiudad String,
+    codigoCiudad String
+}
+
+entity ViabilidadVisa {
+	destino Destinod,
+	tipoPrograma TipoProgramad,
+    duracion Duraciond,
+    nacionalidadPrincipal Nacionalidadd
+    otraNacionalidad Nacionalidadd,
+    fechaNacimiento LocalDate,
+    genero Generod,
+    estadoCivil EstadoCivild,
+    viajaAcompanado Boolean,
+    personasCargo PersonasCargod,
+    nivelAcademico NivelAcademicod,
+    profesion String,
+    fechaGadruacion LocalDate,
+    ocupacionActual OcupacionActuald,
+    carta Boolean,
+    suspendidoEstudios Boolean,
+    peridoSupencionEstu PeridoSupencionEstud,
+    razonSuspencion String,
+    tipoContrato TipoContratod,
+    licenciaLaboral Boolean,
+    nivelSalarial NivelSalariald,
+    tipoLaborIndependiente TipoLaborIndependiented,
+    tiempoIndependiente PeridoSupencionEstud,
+    nivelIngresosIndependiente NivelSalariald,
+    tiempoDesempleado PeridoSupencionEstud,
+    quienFinanciaEstudios QuienFinanciaEstudiosd,
+    parentesco Parentescod,
+    presupuestoDisponible NivelSalariald,
+    ahorroDisponible Boolean,
+    idioma Boolean,
+    certificarIdioma Boolean,
+    certificacionIdioma String,
+    puntajeCertificacion String,
+    salidasPais String,
+    paisesVisitados String,
+    visaPais String
+    estudiadoAnterior Boolean,
+    fueraPais Boolean,
+    paisFuera String,
+    extenderEstadia Boolean,
+    negadoVisa Boolean,
+    paisNegado String,
+    familiaresDestino Boolean,
+    estatusMigratorio String,
+    nombre String,
+    apelliod String,
+    correo String   
+}
+
+
+entity BlogContenido {
+nombre String,
+apellido String,
+correo String,
+nacionalidad Nacionalidadd,
+paisEstudio Destinod,
+calificacionPais Integer,
+ciudadVive String,
+calificacionCiudad Integer,
+programaRealizado String,
+institucionEstudio String,
+calificacionInstitucion Integer,
+agenciaEstudios Boolean,
+nombreAgencia String,
+calificacionAgencia Integer,
+calificacionExperienciaEstudio Integer,
+fecha LocalDate,
+titulo String,
+imagen ImageBlob,
+contenido TextBlob,
+}
+entity ComentarioBlog {
+	comentario TextBlob,
+    fecha LocalDate,
+    calificacion Integer,
+}
+
+entity CRM {
+	fecha ZonedDateTime,
+    descripcion String,
+    documento ImageBlob,
+    asesor Asesord,
+    estado Estadod,
+    tipoLead TipoLeadd,
+    comentarios TextBlob,
+    cerrado Boolean    
+}
+
+entity PasoCRM {
+	codigo Integer,
+    descripcion String,
+    duracionDias Integer,
+    estado Estadod,
+
+}
+
+entity Experiencia{
+    identificacion Integer,
+    nombre String,
+    apellido String,
+	mail String,
+    area Integer,
+    telefono Integer,
+    nacionalidad String,
+    paisDestino String,
+    calificaPais Integer,
+    programa String,
+    institucion String,
+    calificaInstitucion Integer,
+    agencia String,
+    calificaAgencia Integer,
+    fecha LocalDate,
+    contenido TextBlob,
+    foto ImageBlob
+}
+
+relationship OneToOne {
+	PerfilUsuario{usuario(login)} to User,  
+}
+
+relationship ManyToOne {
+	Institucion{ciudad(nombreCiudad)} to Ciudad,
+    Programas{institucion(nombre)} to Institucion,
+    Programas{ciudad(nombreCiudad)} to Ciudad,
+    Programas{tipoPrograma(tipoPrograma)} to TipoPrograma,
+    Ciudad{pais(nombrePais)} to Pais,
+    BlogContenido{usuario(login)} to User,
+    ComentarioBlog{usuario(login)} to User,
+    ComentarioBlog{tituloBlog(titulo)} to BlogContenido,
+    Cotizacion{usario(identificacion)} to PerfilUsuario,
+    Cotizacion{curso(curso)} to Programas,
+    Agencia{pais(nombrePais)} to Pais,
+    CRM{usuario(identificacion)} to PerfilUsuario,
+    CRM{proceso(Descripcion)} to PasoCRM,
+    CRM{agencia(nombreAgencia)} to Agencia,
+    CRM to Cotizacion,
+    
+}
+
+filter *
+search * with elasticsearch
+paginate * with infinite-scroll
+
+enum Estadod {
+	Pendiente, EnProceso, Finalizado, Expirado
+}
+
+enum Asesord {
+	CarlosFranco, CatalinaFranco
+}
+
+enum TipoLeadd {
+	AltaPrioridad, MediaPrioridad, BajaPrioridad
+}
+
+
+
+enum Monedad {
+	COP, USD, EUR
+}
+
+enum Destinod {
+    ALEMANIA, AUSTRALIA, CANADA, ESPANA, ESTADOS_UNIDOS, FRANCIA, INGLATERRA, IRLANDA, ITALIA, JAPON, MALTA, NUEVA_ZELANDA, SUDAFRICA, SUIZA
+}
+enum TipoProgramad {
+Programas_Idiomas, Curso_Verano_idiomas, Programa_preparacion_Examenes_idioma, Programa_Pregrado, Programa_Posgrado, Programas_Cortos_Ejecutivos
+}
+
+enum Duraciond {
+ 	UN_MES, DOS_MESES, TRES_MESES, CUATRO_MESES, CINCO_MESES, SEIS_MESES, SIETE_MESES, OCHO_MESES, NUEVE_MESES, DIEZ_MESES, ONCE_MESES, DOCE_MESES   
+}
+
+enum Nacionalidadd {
+	Argentina, Bolivia, Brasil, Chile, Colombia, Costa_Rica, Ecuador, Guatemala, Honduras, Mexico, Nicaragua, Panama, Paraguay, Peru, Uruguay, Venezuela
+}
+
+enum Generod {
+	Hombre, Mujer, LBGTI, Indeterminado
+}
+
+enum EstadoCivild {
+	Soltero, Casado, Viudo, Separado, Union_Libre
+}
+
+enum PersonasCargod {
+ 	NINGUNA, UNA, DOS, TRES, MAS_DE_CUATRO
+}
+
+enum NivelAcademicod {
+PRIMARIA, SECUNDARIA, PREGRADO, POSGRADO, DOCTORADO
+}
+
+enum OcupacionActuald {
+Estudiante, Estudiante_Graduado_sin_Laborar, Empleado, Independiente, Desempleado
+}
+
+enum PeridoSupencionEstud {
+	SEIS_MESES, UN_ANO, DOS_ANOS, MAS_DOS_ANOS
+}
+
+enum TipoContratod {
+TERMINO_FIJO, TERMINO_INDEFNIDO, PRESTACION_SERVICIOS
+}
+
+enum NivelSalariald {
+MENOS_US600, US700_US1000, US1000_US1500, US1500_US2000, SUPERIOR_US2000
+}
+
+enum TipoLaborIndependiented {
+	PROFESIONAL_CUENTA_PROPIA, ESTABLECIMIENTO_COMERCIO, CONTRATO_PRESTACION_SERVICIOS
+}
+
+enum Parentescod {
+	Padre_Madre, Hermano, Abuelos, Tios, Otros
+}
+
+enum QuienFinanciaEstudiosd {
+	Tu_mismo, Un_familiar, Empleador, Beca_total, Beca_Parcial
+}
+
+
+

@@ -1,0 +1,86 @@
+{
+    "name": "Experiencia",
+    "fields": [
+        {
+            "fieldName": "identificacion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apellido",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "area",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nacionalidad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paisDestino",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "calificaPais",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "programa",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "institucion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "calificaInstitucion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "agencia",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "calificaAgencia",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "contenido",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "foto",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190730133935",
+    "entityTableName": "experiencia",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

@@ -43,6 +43,21 @@ public class CacheConfiguration {
             createCache(cm, io.github.jhipster.application.domain.User.class.getName());
             createCache(cm, io.github.jhipster.application.domain.Authority.class.getName());
             createCache(cm, io.github.jhipster.application.domain.User.class.getName() + ".authorities");
+            createCache(cm, io.github.jhipster.application.domain.Institucion.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.Programas.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.TipoPrograma.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.Cotizacion.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.Cotizacion.class.getName() + ".cRMS");
+            createCache(cm, io.github.jhipster.application.domain.PerfilUsuario.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.Agencia.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.Pais.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.Ciudad.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.ViabilidadVisa.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.BlogContenido.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.ComentarioBlog.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.CRM.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.PasoCRM.class.getName());
+            createCache(cm, io.github.jhipster.application.domain.Experiencia.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

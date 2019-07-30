@@ -1,0 +1,185 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="institucion">
+            <h2><span jhiTranslate="lifestudiesApp6App.institucion.detail.title">Institucion</span> {{institucion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{institucion.codigo}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{institucion.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{institucion.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{institucion.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.website">Website</span></dt>
+                <dd>
+                    <span>{{institucion.website}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.contacto">Contacto</span></dt>
+                <dd>
+                    <span>{{institucion.contacto}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.representante">Representante</span></dt>
+                <dd>
+                    <span>{{institucion.representante}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.skype">Skype</span></dt>
+                <dd>
+                    <span>{{institucion.skype}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{institucion.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.estatus">Estatus</span></dt>
+                <dd>
+                    <span>{{institucion.estatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.tipoProgramas">Tipo Programas</span></dt>
+                <dd>
+                    <span>{{institucion.tipoProgramas}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.programaEstandar">Programa Estandar</span></dt>
+                <dd>
+                    <span>{{institucion.programaEstandar}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.programaIntensivo">Programa Intensivo</span></dt>
+                <dd>
+                    <span>{{institucion.programaIntensivo}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.programaNegocios">Programa Negocios</span></dt>
+                <dd>
+                    <span>{{institucion.programaNegocios}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.preparacionExamen">Preparacion Examen</span></dt>
+                <dd>
+                    <span>{{institucion.preparacionExamen}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.programaAcademico">Programa Academico</span></dt>
+                <dd>
+                    <span>{{institucion.programaAcademico}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.descuento">Descuento</span></dt>
+                <dd>
+                    <span>{{institucion.descuento}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.inscripcion">Inscripcion</span></dt>
+                <dd>
+                    <span>{{institucion.inscripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.materiales">Materiales</span></dt>
+                <dd>
+                    <span>{{institucion.materiales}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.seguroMedico">Seguro Medico</span></dt>
+                <dd>
+                    <span>{{institucion.seguroMedico}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.alojamientoSencillo">Alojamiento Sencillo</span></dt>
+                <dd>
+                    <span>{{institucion.alojamientoSencillo}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.alojamientoDoble">Alojamiento Doble</span></dt>
+                <dd>
+                    <span>{{institucion.alojamientoDoble}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.transporteAeropuerto">Transporte Aeropuerto</span></dt>
+                <dd>
+                    <span>{{institucion.transporteAeropuerto}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.tipoCurso">Tipo Curso</span></dt>
+                <dd>
+                    <span>{{institucion.tipoCurso}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.temporadaAlta">Temporada Alta</span></dt>
+                <dd>
+                    <span>{{institucion.temporadaAlta}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.temporadaBaja">Temporada Baja</span></dt>
+                <dd>
+                    <span>{{institucion.temporadaBaja}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.fechaInicial">Fecha Inicial</span></dt>
+                <dd>
+                    <span>{{institucion.fechaInicial}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.horarios">Horarios</span></dt>
+                <dd>
+                    <span>{{institucion.horarios}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.instalaciones">Instalaciones</span></dt>
+                <dd>
+                    <span>{{institucion.instalaciones}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.nacionalidad">Nacionalidad</span></dt>
+                <dd>
+                    <span>{{institucion.nacionalidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.logo">Logo</span></dt>
+                <dd>
+                    <div *ngIf="institucion.logo">
+                        <a (click)="openFile(institucion.logoContentType, institucion.logo)">
+                            <img [src]="'data:' + institucion.logoContentType + ';base64,' + institucion.logo" style="max-width: 100%;" alt="institucion image"/>
+                        </a>
+                        {{institucion.logoContentType}}, {{byteSize(institucion.logo)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.foto1">Foto 1</span></dt>
+                <dd>
+                    <div *ngIf="institucion.foto1">
+                        <a (click)="openFile(institucion.foto1ContentType, institucion.foto1)">
+                            <img [src]="'data:' + institucion.foto1ContentType + ';base64,' + institucion.foto1" style="max-width: 100%;" alt="institucion image"/>
+                        </a>
+                        {{institucion.foto1ContentType}}, {{byteSize(institucion.foto1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.foto2">Foto 2</span></dt>
+                <dd>
+                    <div *ngIf="institucion.foto2">
+                        <a (click)="openFile(institucion.foto2ContentType, institucion.foto2)">
+                            <img [src]="'data:' + institucion.foto2ContentType + ';base64,' + institucion.foto2" style="max-width: 100%;" alt="institucion image"/>
+                        </a>
+                        {{institucion.foto2ContentType}}, {{byteSize(institucion.foto2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.foto3">Foto 3</span></dt>
+                <dd>
+                    <div *ngIf="institucion.foto3">
+                        <a (click)="openFile(institucion.foto3ContentType, institucion.foto3)">
+                            <img [src]="'data:' + institucion.foto3ContentType + ';base64,' + institucion.foto3" style="max-width: 100%;" alt="institucion image"/>
+                        </a>
+                        {{institucion.foto3ContentType}}, {{byteSize(institucion.foto3)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.institucion.ciudad">Ciudad</span></dt>
+                <dd>
+                    <div *ngIf="institucion.ciudad">
+                        <a [routerLink]="['/ciudad', institucion.ciudad?.id, 'view']">{{institucion.ciudad?.nombreCiudad}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/institucion', institucion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pasoCRM">
+            <h2><span jhiTranslate="lifestudiesApp6App.pasoCRM.detail.title">Paso CRM</span> {{pasoCRM.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lifestudiesApp6App.pasoCRM.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{pasoCRM.codigo}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.pasoCRM.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{pasoCRM.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.pasoCRM.duracionDias">Duracion Dias</span></dt>
+                <dd>
+                    <span>{{pasoCRM.duracionDias}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.pasoCRM.estado">Estado</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lifestudiesApp6App.Estadod.' + pasoCRM.estado}}">{{pasoCRM.estado}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/paso-crm', pasoCRM.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <!--
+        Added the entity PerfilUsuario.
+    -->
+    <changeSet id="20190730133926-1" author="jhipster">
+        <createTable tableName="perfil_usuario">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="fecha_nacimiento" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="identificacion" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="mail" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="area" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="telefono" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nivel_academico" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="area_academica" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="termino_academico" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="puntaje_icfes" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="promedio_academico" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="dominio_idioma" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="idiomas" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="examen_idioma" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="examen_realizado" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="puntaje_idioma" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="beca_otorgada" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tipo_beca" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="beca_institucion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="grupo_social" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fundacion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="monitor" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="monitor_materia" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="logros_academicos" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="experiencia_laboral" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="area_laboral" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="programarealizar" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="programa_area" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fecha_inicio" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="programa_encontrado" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nombre_programa" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="universidad" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="pais" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="merecedor_beca" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="foto" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="foto_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="usuario_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_perfil_usuario_usuario_id" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="20190730133926-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20190730133926-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/data/perfil_usuario.csv"
+                  separator=";"
+                  tableName="perfil_usuario">
+            <column name="id" type="numeric"/>
+            <column name="fecha_nacimiento" type="date"/>
+            <column name="identificacion" type="numeric"/>
+            <column name="mail" type="string"/>
+            <column name="area" type="numeric"/>
+            <column name="telefono" type="numeric"/>
+            <column name="nivel_academico" type="string"/>
+            <column name="area_academica" type="string"/>
+            <column name="termino_academico" type="numeric"/>
+            <column name="puntaje_icfes" type="numeric"/>
+            <column name="promedio_academico" type="numeric"/>
+            <column name="dominio_idioma" type="boolean"/>
+            <column name="idiomas" type="string"/>
+            <column name="examen_idioma" type="boolean"/>
+            <column name="examen_realizado" type="string"/>
+            <column name="puntaje_idioma" type="numeric"/>
+            <column name="beca_otorgada" type="boolean"/>
+            <column name="tipo_beca" type="numeric"/>
+            <column name="beca_institucion" type="string"/>
+            <column name="grupo_social" type="boolean"/>
+            <column name="fundacion" type="string"/>
+            <column name="monitor" type="boolean"/>
+            <column name="monitor_materia" type="string"/>
+            <column name="logros_academicos" type="string"/>
+            <column name="experiencia_laboral" type="boolean"/>
+            <column name="area_laboral" type="string"/>
+            <column name="programarealizar" type="numeric"/>
+            <column name="programa_area" type="string"/>
+            <column name="fecha_inicio" type="date"/>
+            <column name="programa_encontrado" type="boolean"/>
+            <column name="nombre_programa" type="string"/>
+            <column name="universidad" type="string"/>
+            <column name="pais" type="numeric"/>
+            <column name="merecedor_beca" type="string"/>
+            <column name="foto" type="blob"/>
+            <column name="foto_content_type" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

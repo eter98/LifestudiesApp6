@@ -1,0 +1,135 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="agencia">
+            <h2><span jhiTranslate="lifestudiesApp6App.agencia.detail.title">Agencia</span> {{agencia.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.nombreAgencia">Nombre Agencia</span></dt>
+                <dd>
+                    <span>{{agencia.nombreAgencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{agencia.codigo}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{agencia.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.encargado">Encargado</span></dt>
+                <dd>
+                    <span>{{agencia.encargado}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{agencia.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{agencia.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.email">Email</span></dt>
+                <dd>
+                    <span>{{agencia.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.whatsapp">Whatsapp</span></dt>
+                <dd>
+                    <span>{{agencia.whatsapp}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.asesor1">Asesor 1</span></dt>
+                <dd>
+                    <span>{{agencia.asesor1}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.fotoAsesor1">Foto Asesor 1</span></dt>
+                <dd>
+                    <div *ngIf="agencia.fotoAsesor1">
+                        <a (click)="openFile(agencia.fotoAsesor1ContentType, agencia.fotoAsesor1)">
+                            <img [src]="'data:' + agencia.fotoAsesor1ContentType + ';base64,' + agencia.fotoAsesor1" style="max-width: 100%;" alt="agencia image"/>
+                        </a>
+                        {{agencia.fotoAsesor1ContentType}}, {{byteSize(agencia.fotoAsesor1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.asesor2">Asesor 2</span></dt>
+                <dd>
+                    <span>{{agencia.asesor2}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.fotoAsesor2">Foto Asesor 2</span></dt>
+                <dd>
+                    <div *ngIf="agencia.fotoAsesor2">
+                        <a (click)="openFile(agencia.fotoAsesor2ContentType, agencia.fotoAsesor2)">
+                            <img [src]="'data:' + agencia.fotoAsesor2ContentType + ';base64,' + agencia.fotoAsesor2" style="max-width: 100%;" alt="agencia image"/>
+                        </a>
+                        {{agencia.fotoAsesor2ContentType}}, {{byteSize(agencia.fotoAsesor2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.asesor3">Asesor 3</span></dt>
+                <dd>
+                    <span>{{agencia.asesor3}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.fotoAsesor3">Foto Asesor 3</span></dt>
+                <dd>
+                    <div *ngIf="agencia.fotoAsesor3">
+                        <a (click)="openFile(agencia.fotoAsesor3ContentType, agencia.fotoAsesor3)">
+                            <img [src]="'data:' + agencia.fotoAsesor3ContentType + ';base64,' + agencia.fotoAsesor3" style="max-width: 100%;" alt="agencia image"/>
+                        </a>
+                        {{agencia.fotoAsesor3ContentType}}, {{byteSize(agencia.fotoAsesor3)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.logo">Logo</span></dt>
+                <dd>
+                    <div *ngIf="agencia.logo">
+                        <a (click)="openFile(agencia.logoContentType, agencia.logo)">
+                            <img [src]="'data:' + agencia.logoContentType + ';base64,' + agencia.logo" style="max-width: 100%;" alt="agencia image"/>
+                        </a>
+                        {{agencia.logoContentType}}, {{byteSize(agencia.logo)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.foto1">Foto 1</span></dt>
+                <dd>
+                    <div *ngIf="agencia.foto1">
+                        <a (click)="openFile(agencia.foto1ContentType, agencia.foto1)">
+                            <img [src]="'data:' + agencia.foto1ContentType + ';base64,' + agencia.foto1" style="max-width: 100%;" alt="agencia image"/>
+                        </a>
+                        {{agencia.foto1ContentType}}, {{byteSize(agencia.foto1)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.foto2">Foto 2</span></dt>
+                <dd>
+                    <div *ngIf="agencia.foto2">
+                        <a (click)="openFile(agencia.foto2ContentType, agencia.foto2)">
+                            <img [src]="'data:' + agencia.foto2ContentType + ';base64,' + agencia.foto2" style="max-width: 100%;" alt="agencia image"/>
+                        </a>
+                        {{agencia.foto2ContentType}}, {{byteSize(agencia.foto2)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.sede1">Sede 1</span></dt>
+                <dd>
+                    <span>{{agencia.sede1}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.sede2">Sede 2</span></dt>
+                <dd>
+                    <span>{{agencia.sede2}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.agencia.pais">Pais</span></dt>
+                <dd>
+                    <div *ngIf="agencia.pais">
+                        <a [routerLink]="['/pais', agencia.pais?.id, 'view']">{{agencia.pais?.nombrePais}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/agencia', agencia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

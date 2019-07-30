@@ -1,0 +1,162 @@
+{
+    "name": "PerfilUsuario",
+    "fields": [
+        {
+            "fieldName": "fechaNacimiento",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "identificacion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "mail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "area",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nivelAcademico",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "areaAcademica",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "terminoAcademico",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "puntajeICFES",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "promedioAcademico",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dominioIdioma",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "idiomas",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "examenIdioma",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "examenRealizado",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "puntajeIdioma",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "becaOtorgada",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "tipoBeca",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "becaInstitucion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grupoSocial",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "fundacion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "monitor",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "monitorMateria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logrosAcademicos",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "experienciaLaboral",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "areaLaboral",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "programarealizar",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "programaArea",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaInicio",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "programaEncontrado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "nombrePrograma",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "universidad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pais",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "merecedorBeca",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "foto",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "perfilUsuario",
+            "relationshipName": "usuario",
+            "otherEntityField": "login",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190730133926",
+    "entityTableName": "perfil_usuario",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}
