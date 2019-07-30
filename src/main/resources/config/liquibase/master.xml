@@ -14,6 +14,29 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133922_added_entity_Institucion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133923_added_entity_Programas.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133924_added_entity_TipoPrograma.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133925_added_entity_Cotizacion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133926_added_entity_PerfilUsuario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133927_added_entity_Agencia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133928_added_entity_Pais.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133929_added_entity_Ciudad.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133930_added_entity_ViabilidadVisa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133931_added_entity_BlogContenido.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133932_added_entity_ComentarioBlog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133933_added_entity_CRM.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133934_added_entity_PasoCRM.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133935_added_entity_Experiencia.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190730133922_added_entity_constraints_Institucion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133923_added_entity_constraints_Programas.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133925_added_entity_constraints_Cotizacion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133926_added_entity_constraints_PerfilUsuario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133927_added_entity_constraints_Agencia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133929_added_entity_constraints_Ciudad.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133931_added_entity_constraints_BlogContenido.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133932_added_entity_constraints_ComentarioBlog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730133933_added_entity_constraints_CRM.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

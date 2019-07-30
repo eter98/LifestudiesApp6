@@ -1,0 +1,125 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-experiencia-heading" jhiTranslate="lifestudiesApp6App.experiencia.home.createOrEditLabel">Create or edit a Experiencia</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.identificacion" for="field_identificacion">Identificacion</label>
+                    <input type="number" class="form-control" name="identificacion" id="field_identificacion"
+                           formControlName="identificacion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.apellido" for="field_apellido">Apellido</label>
+                    <input type="text" class="form-control" name="apellido" id="field_apellido"
+                           formControlName="apellido"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.mail" for="field_mail">Mail</label>
+                    <input type="text" class="form-control" name="mail" id="field_mail"
+                           formControlName="mail"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.area" for="field_area">Area</label>
+                    <input type="number" class="form-control" name="area" id="field_area"
+                           formControlName="area"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.telefono" for="field_telefono">Telefono</label>
+                    <input type="number" class="form-control" name="telefono" id="field_telefono"
+                           formControlName="telefono"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.nacionalidad" for="field_nacionalidad">Nacionalidad</label>
+                    <input type="text" class="form-control" name="nacionalidad" id="field_nacionalidad"
+                           formControlName="nacionalidad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.paisDestino" for="field_paisDestino">Pais Destino</label>
+                    <input type="text" class="form-control" name="paisDestino" id="field_paisDestino"
+                           formControlName="paisDestino"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.calificaPais" for="field_calificaPais">Califica Pais</label>
+                    <input type="number" class="form-control" name="calificaPais" id="field_calificaPais"
+                           formControlName="calificaPais"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.programa" for="field_programa">Programa</label>
+                    <input type="text" class="form-control" name="programa" id="field_programa"
+                           formControlName="programa"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.institucion" for="field_institucion">Institucion</label>
+                    <input type="text" class="form-control" name="institucion" id="field_institucion"
+                           formControlName="institucion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.calificaInstitucion" for="field_calificaInstitucion">Califica Institucion</label>
+                    <input type="number" class="form-control" name="calificaInstitucion" id="field_calificaInstitucion"
+                           formControlName="calificaInstitucion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.agencia" for="field_agencia">Agencia</label>
+                    <input type="text" class="form-control" name="agencia" id="field_agencia"
+                           formControlName="agencia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.calificaAgencia" for="field_calificaAgencia">Califica Agencia</label>
+                    <input type="number" class="form-control" name="calificaAgencia" id="field_calificaAgencia"
+                           formControlName="calificaAgencia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.fecha" for="field_fecha">Fecha</label>
+                    <div class="input-group">
+                        <input id="field_fecha" type="text" class="form-control" name="fecha" ngbDatepicker  #fechaDp="ngbDatepicker" formControlName="fecha"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.contenido" for="field_contenido">Contenido</label>
+                    <textarea class="form-control" name="contenido" id="field_contenido"
+                              formControlName="contenido"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.experiencia.foto" for="field_foto">Foto</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('fotoContentType').value + ';base64,' + editForm.get('foto').value" style="max-height: 100px;" *ngIf="editForm.get('foto').value" alt="experiencia image"/>
+                        <div *ngIf="editForm.get('foto').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('fotoContentType').value}}, {{byteSize(editForm.get('foto').value)}}</span>
+                            <button type="button" (click)="clearInputImage('foto', 'fotoContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto" (change)="setFileData($event, 'foto', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto" id="field_foto"
+                           formControlName="foto"/>
+                    <input type="hidden" class="form-control" name="fotoContentType" id="field_fotoContentType"
+                           formControlName="fotoContentType" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

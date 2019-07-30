@@ -1,0 +1,12 @@
+{
+  "lifestudiesApp6App": {
+    "NivelAcademicod": {
+      "null": "",
+      "PRIMARIA": "PRIMARIA",
+      "SECUNDARIA": "SECUNDARIA",
+      "PREGRADO": "PREGRADO",
+      "POSGRADO": "POSGRADO",
+      "DOCTORADO": "DOCTORADO"
+    }
+  }
+}

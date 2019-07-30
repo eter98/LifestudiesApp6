@@ -1,0 +1,12 @@
+{
+  "lifestudiesApp6App": {
+    "Parentescod": {
+      "null": "",
+      "Padre_Madre": "Padre_Madre",
+      "Hermano": "Hermano",
+      "Abuelos": "Abuelos",
+      "Tios": "Tios",
+      "Otros": "Otros"
+    }
+  }
+}

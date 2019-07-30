@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cotizacion-heading" jhiTranslate="lifestudiesApp6App.cotizacion.home.createOrEditLabel">Create or edit a Cotizacion</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cotizacion.fechaViaje" for="field_fechaViaje">Fecha Viaje</label>
+                    <div class="input-group">
+                        <input id="field_fechaViaje" type="text" class="form-control" name="fechaViaje" ngbDatepicker  #fechaViajeDp="ngbDatepicker" formControlName="fechaViaje"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaViajeDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cotizacion.alojamiento" for="field_alojamiento">Alojamiento</label>
+                    <input type="checkbox" class="form-control" name="alojamiento" id="field_alojamiento"
+                           formControlName="alojamiento"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cotizacion.pasajeAereo" for="field_pasajeAereo">Pasaje Aereo</label>
+                    <input type="checkbox" class="form-control" name="pasajeAereo" id="field_pasajeAereo"
+                           formControlName="pasajeAereo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cotizacion.transpAeropuerto" for="field_transpAeropuerto">Transp Aeropuerto</label>
+                    <input type="checkbox" class="form-control" name="transpAeropuerto" id="field_transpAeropuerto"
+                           formControlName="transpAeropuerto"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cotizacion.usario" for="field_usario">Usario</label>
+                    <select class="form-control" id="field_usario" name="usario" formControlName="usario">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="perfilUsuarioOption.id === editForm.get('usario').value?.id ? editForm.get('usario').value : perfilUsuarioOption" *ngFor="let perfilUsuarioOption of perfilusuarios; trackBy: trackPerfilUsuarioById">{{perfilUsuarioOption.identificacion}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cotizacion.curso" for="field_curso">Curso</label>
+                    <select class="form-control" id="field_curso" name="curso" formControlName="curso">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="programasOption.id === editForm.get('curso').value?.id ? editForm.get('curso').value : programasOption" *ngFor="let programasOption of programas; trackBy: trackProgramasById">{{programasOption.curso}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

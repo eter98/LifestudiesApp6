@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cRM">
+            <h2><span jhiTranslate="lifestudiesApp6App.cRM.detail.title">CRM</span> {{cRM.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{cRM.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{cRM.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.documento">Documento</span></dt>
+                <dd>
+                    <div *ngIf="cRM.documento">
+                        <a (click)="openFile(cRM.documentoContentType, cRM.documento)">
+                            <img [src]="'data:' + cRM.documentoContentType + ';base64,' + cRM.documento" style="max-width: 100%;" alt="cRM image"/>
+                        </a>
+                        {{cRM.documentoContentType}}, {{byteSize(cRM.documento)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.asesor">Asesor</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lifestudiesApp6App.Asesord.' + cRM.asesor}}">{{cRM.asesor}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.estado">Estado</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lifestudiesApp6App.Estadod.' + cRM.estado}}">{{cRM.estado}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.tipoLead">Tipo Lead</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lifestudiesApp6App.TipoLeadd.' + cRM.tipoLead}}">{{cRM.tipoLead}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.comentarios">Comentarios</span></dt>
+                <dd>
+                    <span>{{cRM.comentarios}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.cerrado">Cerrado</span></dt>
+                <dd>
+                    <span>{{cRM.cerrado}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.usuario">Usuario</span></dt>
+                <dd>
+                    <div *ngIf="cRM.usuario">
+                        <a [routerLink]="['/perfil-usuario', cRM.usuario?.id, 'view']">{{cRM.usuario?.identificacion}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.proceso">Proceso</span></dt>
+                <dd>
+                    <div *ngIf="cRM.proceso">
+                        <a [routerLink]="['/paso-crm', cRM.proceso?.id, 'view']">{{cRM.proceso?.descripcion}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.agencia">Agencia</span></dt>
+                <dd>
+                    <div *ngIf="cRM.agencia">
+                        <a [routerLink]="['/agencia', cRM.agencia?.id, 'view']">{{cRM.agencia?.nombreAgencia}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cRM.cotizacion">Cotizacion</span></dt>
+                <dd>
+                    <div *ngIf="cRM.cotizacion">
+                        <a [routerLink]="['/cotizacion', cRM.cotizacion?.id, 'view']">{{cRM.cotizacion?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/crm', cRM.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

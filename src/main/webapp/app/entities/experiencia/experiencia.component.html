@@ -1,0 +1,109 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lifestudiesApp6App.experiencia.home.title">Experiencias</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-experiencia" [routerLink]="['/experiencia/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="lifestudiesApp6App.experiencia.home.createLabel">
+            Create new Experiencia
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'lifestudiesApp6App.experiencia.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="experiencias?.length === 0">
+        <span jhiTranslate="lifestudiesApp6App.experiencia.home.notFound">No experiencias found</span>
+    </div>
+    <div class="table-responsive" *ngIf="experiencias?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="identificacion"><span jhiTranslate="lifestudiesApp6App.experiencia.identificacion">Identificacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="lifestudiesApp6App.experiencia.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="apellido"><span jhiTranslate="lifestudiesApp6App.experiencia.apellido">Apellido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mail"><span jhiTranslate="lifestudiesApp6App.experiencia.mail">Mail</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="area"><span jhiTranslate="lifestudiesApp6App.experiencia.area">Area</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="telefono"><span jhiTranslate="lifestudiesApp6App.experiencia.telefono">Telefono</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nacionalidad"><span jhiTranslate="lifestudiesApp6App.experiencia.nacionalidad">Nacionalidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paisDestino"><span jhiTranslate="lifestudiesApp6App.experiencia.paisDestino">Pais Destino</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="calificaPais"><span jhiTranslate="lifestudiesApp6App.experiencia.calificaPais">Califica Pais</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="programa"><span jhiTranslate="lifestudiesApp6App.experiencia.programa">Programa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="institucion"><span jhiTranslate="lifestudiesApp6App.experiencia.institucion">Institucion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="calificaInstitucion"><span jhiTranslate="lifestudiesApp6App.experiencia.calificaInstitucion">Califica Institucion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="agencia"><span jhiTranslate="lifestudiesApp6App.experiencia.agencia">Agencia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="calificaAgencia"><span jhiTranslate="lifestudiesApp6App.experiencia.calificaAgencia">Califica Agencia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecha"><span jhiTranslate="lifestudiesApp6App.experiencia.fecha">Fecha</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contenido"><span jhiTranslate="lifestudiesApp6App.experiencia.contenido">Contenido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="foto"><span jhiTranslate="lifestudiesApp6App.experiencia.foto">Foto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let experiencia of experiencias ;trackBy: trackId">
+                <td><a [routerLink]="['/experiencia', experiencia.id, 'view' ]">{{experiencia.id}}</a></td>
+                <td>{{experiencia.identificacion}}</td>
+                <td>{{experiencia.nombre}}</td>
+                <td>{{experiencia.apellido}}</td>
+                <td>{{experiencia.mail}}</td>
+                <td>{{experiencia.area}}</td>
+                <td>{{experiencia.telefono}}</td>
+                <td>{{experiencia.nacionalidad}}</td>
+                <td>{{experiencia.paisDestino}}</td>
+                <td>{{experiencia.calificaPais}}</td>
+                <td>{{experiencia.programa}}</td>
+                <td>{{experiencia.institucion}}</td>
+                <td>{{experiencia.calificaInstitucion}}</td>
+                <td>{{experiencia.agencia}}</td>
+                <td>{{experiencia.calificaAgencia}}</td>
+                <td>{{experiencia.fecha | date:'mediumDate'}}</td>
+                <td>{{experiencia.contenido}}</td>
+                <td>
+                    <a *ngIf="experiencia.foto" (click)="openFile(experiencia.fotoContentType, experiencia.foto)">
+                        <img [src]="'data:' + experiencia.fotoContentType + ';base64,' + experiencia.foto" style="max-height: 30px;" alt="experiencia image"/>
+                    </a>
+                    <span *ngIf="experiencia.foto">{{experiencia.fotoContentType}}, {{byteSize(experiencia.foto)}}</span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/experiencia', experiencia.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/experiencia', experiencia.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'experiencia', { outlets: { popup: experiencia.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

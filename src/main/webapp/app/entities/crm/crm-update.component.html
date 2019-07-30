@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-crm-heading" jhiTranslate="lifestudiesApp6App.cRM.home.createOrEditLabel">Create or edit a CRM</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.fecha" for="field_fecha">Fecha</label>
+                    <div class="d-flex">
+                        <input id="field_fecha" type="datetime-local" class="form-control" name="fecha" formControlName="fecha" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.documento" for="field_documento">Documento</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('documentoContentType').value + ';base64,' + editForm.get('documento').value" style="max-height: 100px;" *ngIf="editForm.get('documento').value" alt="cRM image"/>
+                        <div *ngIf="editForm.get('documento').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('documentoContentType').value}}, {{byteSize(editForm.get('documento').value)}}</span>
+                            <button type="button" (click)="clearInputImage('documento', 'documentoContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_documento" (change)="setFileData($event, 'documento', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="documento" id="field_documento"
+                           formControlName="documento"/>
+                    <input type="hidden" class="form-control" name="documentoContentType" id="field_documentoContentType"
+                           formControlName="documentoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.asesor" for="field_asesor">Asesor</label>
+                    <select class="form-control" name="asesor" formControlName="asesor" id="field_asesor">
+                        <option value="CarlosFranco">{{'lifestudiesApp6App.Asesord.CarlosFranco' | translate}}</option>
+                        <option value="CatalinaFranco">{{'lifestudiesApp6App.Asesord.CatalinaFranco' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.estado" for="field_estado">Estado</label>
+                    <select class="form-control" name="estado" formControlName="estado" id="field_estado">
+                        <option value="Pendiente">{{'lifestudiesApp6App.Estadod.Pendiente' | translate}}</option>
+                        <option value="EnProceso">{{'lifestudiesApp6App.Estadod.EnProceso' | translate}}</option>
+                        <option value="Finalizado">{{'lifestudiesApp6App.Estadod.Finalizado' | translate}}</option>
+                        <option value="Expirado">{{'lifestudiesApp6App.Estadod.Expirado' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.tipoLead" for="field_tipoLead">Tipo Lead</label>
+                    <select class="form-control" name="tipoLead" formControlName="tipoLead" id="field_tipoLead">
+                        <option value="AltaPrioridad">{{'lifestudiesApp6App.TipoLeadd.AltaPrioridad' | translate}}</option>
+                        <option value="MediaPrioridad">{{'lifestudiesApp6App.TipoLeadd.MediaPrioridad' | translate}}</option>
+                        <option value="BajaPrioridad">{{'lifestudiesApp6App.TipoLeadd.BajaPrioridad' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.comentarios" for="field_comentarios">Comentarios</label>
+                    <textarea class="form-control" name="comentarios" id="field_comentarios"
+                              formControlName="comentarios"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.cerrado" for="field_cerrado">Cerrado</label>
+                    <input type="checkbox" class="form-control" name="cerrado" id="field_cerrado"
+                           formControlName="cerrado"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.usuario" for="field_usuario">Usuario</label>
+                    <select class="form-control" id="field_usuario" name="usuario" formControlName="usuario">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="perfilUsuarioOption.id === editForm.get('usuario').value?.id ? editForm.get('usuario').value : perfilUsuarioOption" *ngFor="let perfilUsuarioOption of perfilusuarios; trackBy: trackPerfilUsuarioById">{{perfilUsuarioOption.identificacion}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.proceso" for="field_proceso">Proceso</label>
+                    <select class="form-control" id="field_proceso" name="proceso" formControlName="proceso">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pasoCRMOption.id === editForm.get('proceso').value?.id ? editForm.get('proceso').value : pasoCRMOption" *ngFor="let pasoCRMOption of pasocrms; trackBy: trackPasoCRMById">{{pasoCRMOption.descripcion}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.agencia" for="field_agencia">Agencia</label>
+                    <select class="form-control" id="field_agencia" name="agencia" formControlName="agencia">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="agenciaOption.id === editForm.get('agencia').value?.id ? editForm.get('agencia').value : agenciaOption" *ngFor="let agenciaOption of agencias; trackBy: trackAgenciaById">{{agenciaOption.nombreAgencia}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.cRM.cotizacion" for="field_cotizacion">Cotizacion</label>
+                    <select class="form-control" id="field_cotizacion" name="cotizacion" formControlName="cotizacion">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cotizacionOption.id === editForm.get('cotizacion').value?.id ? editForm.get('cotizacion').value : cotizacionOption" *ngFor="let cotizacionOption of cotizacions; trackBy: trackCotizacionById">{{cotizacionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

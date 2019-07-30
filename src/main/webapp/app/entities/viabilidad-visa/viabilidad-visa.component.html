@@ -1,0 +1,164 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lifestudiesApp6App.viabilidadVisa.home.title">Viabilidad Visas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-viabilidad-visa" [routerLink]="['/viabilidad-visa/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="lifestudiesApp6App.viabilidadVisa.home.createLabel">
+            Create new Viabilidad Visa
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'lifestudiesApp6App.viabilidadVisa.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="viabilidadVisas?.length === 0">
+        <span jhiTranslate="lifestudiesApp6App.viabilidadVisa.home.notFound">No viabilidadVisas found</span>
+    </div>
+    <div class="table-responsive" *ngIf="viabilidadVisas?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="destino"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.destino">Destino</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoPrograma"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.tipoPrograma">Tipo Programa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="duracion"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.duracion">Duracion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nacionalidadPrincipal"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.nacionalidadPrincipal">Nacionalidad Principal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="otraNacionalidad"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.otraNacionalidad">Otra Nacionalidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaNacimiento"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.fechaNacimiento">Fecha Nacimiento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="genero"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.genero">Genero</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estadoCivil"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.estadoCivil">Estado Civil</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="viajaAcompanado"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.viajaAcompanado">Viaja Acompanado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="personasCargo"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.personasCargo">Personas Cargo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nivelAcademico"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.nivelAcademico">Nivel Academico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="profesion"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.profesion">Profesion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaGadruacion"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.fechaGadruacion">Fecha Gadruacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ocupacionActual"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.ocupacionActual">Ocupacion Actual</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="carta"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.carta">Carta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="suspendidoEstudios"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.suspendidoEstudios">Suspendido Estudios</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="peridoSupencionEstu"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.peridoSupencionEstu">Perido Supencion Estu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="razonSuspencion"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.razonSuspencion">Razon Suspencion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoContrato"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.tipoContrato">Tipo Contrato</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="licenciaLaboral"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.licenciaLaboral">Licencia Laboral</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nivelSalarial"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.nivelSalarial">Nivel Salarial</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoLaborIndependiente"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.tipoLaborIndependiente">Tipo Labor Independiente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tiempoIndependiente"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.tiempoIndependiente">Tiempo Independiente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nivelIngresosIndependiente"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.nivelIngresosIndependiente">Nivel Ingresos Independiente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tiempoDesempleado"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.tiempoDesempleado">Tiempo Desempleado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="quienFinanciaEstudios"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.quienFinanciaEstudios">Quien Financia Estudios</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="parentesco"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.parentesco">Parentesco</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="presupuestoDisponible"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.presupuestoDisponible">Presupuesto Disponible</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ahorroDisponible"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.ahorroDisponible">Ahorro Disponible</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idioma"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.idioma">Idioma</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="certificarIdioma"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.certificarIdioma">Certificar Idioma</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="certificacionIdioma"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.certificacionIdioma">Certificacion Idioma</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="puntajeCertificacion"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.puntajeCertificacion">Puntaje Certificacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="salidasPais"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.salidasPais">Salidas Pais</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paisesVisitados"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.paisesVisitados">Paises Visitados</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="visaPais"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.visaPais">Visa Pais</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estudiadoAnterior"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.estudiadoAnterior">Estudiado Anterior</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fueraPais"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.fueraPais">Fuera Pais</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paisFuera"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.paisFuera">Pais Fuera</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="extenderEstadia"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.extenderEstadia">Extender Estadia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="negadoVisa"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.negadoVisa">Negado Visa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paisNegado"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.paisNegado">Pais Negado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="familiaresDestino"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.familiaresDestino">Familiares Destino</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estatusMigratorio"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.estatusMigratorio">Estatus Migratorio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="apelliod"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.apelliod">Apelliod</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="correo"><span jhiTranslate="lifestudiesApp6App.viabilidadVisa.correo">Correo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let viabilidadVisa of viabilidadVisas ;trackBy: trackId">
+                <td><a [routerLink]="['/viabilidad-visa', viabilidadVisa.id, 'view' ]">{{viabilidadVisa.id}}</a></td>
+                <td jhiTranslate="{{'lifestudiesApp6App.Destinod.' + viabilidadVisa.destino}}">{{viabilidadVisa.destino}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.TipoProgramad.' + viabilidadVisa.tipoPrograma}}">{{viabilidadVisa.tipoPrograma}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.Duraciond.' + viabilidadVisa.duracion}}">{{viabilidadVisa.duracion}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.Nacionalidadd.' + viabilidadVisa.nacionalidadPrincipal}}">{{viabilidadVisa.nacionalidadPrincipal}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.Nacionalidadd.' + viabilidadVisa.otraNacionalidad}}">{{viabilidadVisa.otraNacionalidad}}</td>
+                <td>{{viabilidadVisa.fechaNacimiento | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.Generod.' + viabilidadVisa.genero}}">{{viabilidadVisa.genero}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.EstadoCivild.' + viabilidadVisa.estadoCivil}}">{{viabilidadVisa.estadoCivil}}</td>
+                <td>{{viabilidadVisa.viajaAcompanado}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.PersonasCargod.' + viabilidadVisa.personasCargo}}">{{viabilidadVisa.personasCargo}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.NivelAcademicod.' + viabilidadVisa.nivelAcademico}}">{{viabilidadVisa.nivelAcademico}}</td>
+                <td>{{viabilidadVisa.profesion}}</td>
+                <td>{{viabilidadVisa.fechaGadruacion | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.OcupacionActuald.' + viabilidadVisa.ocupacionActual}}">{{viabilidadVisa.ocupacionActual}}</td>
+                <td>{{viabilidadVisa.carta}}</td>
+                <td>{{viabilidadVisa.suspendidoEstudios}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.PeridoSupencionEstud.' + viabilidadVisa.peridoSupencionEstu}}">{{viabilidadVisa.peridoSupencionEstu}}</td>
+                <td>{{viabilidadVisa.razonSuspencion}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.TipoContratod.' + viabilidadVisa.tipoContrato}}">{{viabilidadVisa.tipoContrato}}</td>
+                <td>{{viabilidadVisa.licenciaLaboral}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.NivelSalariald.' + viabilidadVisa.nivelSalarial}}">{{viabilidadVisa.nivelSalarial}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.TipoLaborIndependiented.' + viabilidadVisa.tipoLaborIndependiente}}">{{viabilidadVisa.tipoLaborIndependiente}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.PeridoSupencionEstud.' + viabilidadVisa.tiempoIndependiente}}">{{viabilidadVisa.tiempoIndependiente}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.NivelSalariald.' + viabilidadVisa.nivelIngresosIndependiente}}">{{viabilidadVisa.nivelIngresosIndependiente}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.PeridoSupencionEstud.' + viabilidadVisa.tiempoDesempleado}}">{{viabilidadVisa.tiempoDesempleado}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.QuienFinanciaEstudiosd.' + viabilidadVisa.quienFinanciaEstudios}}">{{viabilidadVisa.quienFinanciaEstudios}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.Parentescod.' + viabilidadVisa.parentesco}}">{{viabilidadVisa.parentesco}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.NivelSalariald.' + viabilidadVisa.presupuestoDisponible}}">{{viabilidadVisa.presupuestoDisponible}}</td>
+                <td>{{viabilidadVisa.ahorroDisponible}}</td>
+                <td>{{viabilidadVisa.idioma}}</td>
+                <td>{{viabilidadVisa.certificarIdioma}}</td>
+                <td>{{viabilidadVisa.certificacionIdioma}}</td>
+                <td>{{viabilidadVisa.puntajeCertificacion}}</td>
+                <td>{{viabilidadVisa.salidasPais}}</td>
+                <td>{{viabilidadVisa.paisesVisitados}}</td>
+                <td>{{viabilidadVisa.visaPais}}</td>
+                <td>{{viabilidadVisa.estudiadoAnterior}}</td>
+                <td>{{viabilidadVisa.fueraPais}}</td>
+                <td>{{viabilidadVisa.paisFuera}}</td>
+                <td>{{viabilidadVisa.extenderEstadia}}</td>
+                <td>{{viabilidadVisa.negadoVisa}}</td>
+                <td>{{viabilidadVisa.paisNegado}}</td>
+                <td>{{viabilidadVisa.familiaresDestino}}</td>
+                <td>{{viabilidadVisa.estatusMigratorio}}</td>
+                <td>{{viabilidadVisa.nombre}}</td>
+                <td>{{viabilidadVisa.apelliod}}</td>
+                <td>{{viabilidadVisa.correo}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/viabilidad-visa', viabilidadVisa.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/viabilidad-visa', viabilidadVisa.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'viabilidad-visa', { outlets: { popup: viabilidadVisa.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

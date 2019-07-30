@@ -1,0 +1,117 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lifestudiesApp6App.blogContenido.home.title">Blog Contenidos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-blog-contenido" [routerLink]="['/blog-contenido/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="lifestudiesApp6App.blogContenido.home.createLabel">
+            Create new Blog Contenido
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'lifestudiesApp6App.blogContenido.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="blogContenidos?.length === 0">
+        <span jhiTranslate="lifestudiesApp6App.blogContenido.home.notFound">No blogContenidos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="blogContenidos?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="lifestudiesApp6App.blogContenido.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="apellido"><span jhiTranslate="lifestudiesApp6App.blogContenido.apellido">Apellido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="correo"><span jhiTranslate="lifestudiesApp6App.blogContenido.correo">Correo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nacionalidad"><span jhiTranslate="lifestudiesApp6App.blogContenido.nacionalidad">Nacionalidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paisEstudio"><span jhiTranslate="lifestudiesApp6App.blogContenido.paisEstudio">Pais Estudio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="calificacionPais"><span jhiTranslate="lifestudiesApp6App.blogContenido.calificacionPais">Calificacion Pais</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ciudadVive"><span jhiTranslate="lifestudiesApp6App.blogContenido.ciudadVive">Ciudad Vive</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="calificacionCiudad"><span jhiTranslate="lifestudiesApp6App.blogContenido.calificacionCiudad">Calificacion Ciudad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="programaRealizado"><span jhiTranslate="lifestudiesApp6App.blogContenido.programaRealizado">Programa Realizado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="institucionEstudio"><span jhiTranslate="lifestudiesApp6App.blogContenido.institucionEstudio">Institucion Estudio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="calificacionInstitucion"><span jhiTranslate="lifestudiesApp6App.blogContenido.calificacionInstitucion">Calificacion Institucion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="agenciaEstudios"><span jhiTranslate="lifestudiesApp6App.blogContenido.agenciaEstudios">Agencia Estudios</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombreAgencia"><span jhiTranslate="lifestudiesApp6App.blogContenido.nombreAgencia">Nombre Agencia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="calificacionAgencia"><span jhiTranslate="lifestudiesApp6App.blogContenido.calificacionAgencia">Calificacion Agencia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="calificacionExperienciaEstudio"><span jhiTranslate="lifestudiesApp6App.blogContenido.calificacionExperienciaEstudio">Calificacion Experiencia Estudio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecha"><span jhiTranslate="lifestudiesApp6App.blogContenido.fecha">Fecha</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="titulo"><span jhiTranslate="lifestudiesApp6App.blogContenido.titulo">Titulo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="imagen"><span jhiTranslate="lifestudiesApp6App.blogContenido.imagen">Imagen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contenido"><span jhiTranslate="lifestudiesApp6App.blogContenido.contenido">Contenido</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usuario.login"><span jhiTranslate="lifestudiesApp6App.blogContenido.usuario">Usuario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let blogContenido of blogContenidos ;trackBy: trackId">
+                <td><a [routerLink]="['/blog-contenido', blogContenido.id, 'view' ]">{{blogContenido.id}}</a></td>
+                <td>{{blogContenido.nombre}}</td>
+                <td>{{blogContenido.apellido}}</td>
+                <td>{{blogContenido.correo}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.Nacionalidadd.' + blogContenido.nacionalidad}}">{{blogContenido.nacionalidad}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.Destinod.' + blogContenido.paisEstudio}}">{{blogContenido.paisEstudio}}</td>
+                <td>{{blogContenido.calificacionPais}}</td>
+                <td>{{blogContenido.ciudadVive}}</td>
+                <td>{{blogContenido.calificacionCiudad}}</td>
+                <td>{{blogContenido.programaRealizado}}</td>
+                <td>{{blogContenido.institucionEstudio}}</td>
+                <td>{{blogContenido.calificacionInstitucion}}</td>
+                <td>{{blogContenido.agenciaEstudios}}</td>
+                <td>{{blogContenido.nombreAgencia}}</td>
+                <td>{{blogContenido.calificacionAgencia}}</td>
+                <td>{{blogContenido.calificacionExperienciaEstudio}}</td>
+                <td>{{blogContenido.fecha | date:'mediumDate'}}</td>
+                <td>{{blogContenido.titulo}}</td>
+                <td>
+                    <a *ngIf="blogContenido.imagen" (click)="openFile(blogContenido.imagenContentType, blogContenido.imagen)">
+                        <img [src]="'data:' + blogContenido.imagenContentType + ';base64,' + blogContenido.imagen" style="max-height: 30px;" alt="blogContenido image"/>
+                    </a>
+                    <span *ngIf="blogContenido.imagen">{{blogContenido.imagenContentType}}, {{byteSize(blogContenido.imagen)}}</span>
+                </td>
+                <td>{{blogContenido.contenido}}</td>
+                <td>
+                    {{blogContenido.usuario?.login}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/blog-contenido', blogContenido.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/blog-contenido', blogContenido.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'blog-contenido', { outlets: { popup: blogContenido.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

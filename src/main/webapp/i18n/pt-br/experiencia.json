@@ -1,0 +1,39 @@
+{
+  "lifestudiesApp6App": {
+    "experiencia": {
+      "home": {
+        "title": "Experiencias",
+        "createLabel": "Criar novo Experiencia",
+        "createOrEditLabel": "Criar ou editar Experiencia",
+        "search": "Pesquisar por Experiencia",
+        "notFound": "Nenhum Experiencia encontrado"
+      },
+      "created": "Um novo Experiencia foi criado com o identificador {{ param }}",
+      "updated": "Um Experiencia foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Experiencia foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Experiencia {{ id }}?"
+      },
+      "detail": {
+        "title": "Experiencia"
+      },
+      "identificacion": "Identificacion",
+      "nombre": "Nombre",
+      "apellido": "Apellido",
+      "mail": "Mail",
+      "area": "Area",
+      "telefono": "Telefono",
+      "nacionalidad": "Nacionalidad",
+      "paisDestino": "Pais Destino",
+      "calificaPais": "Califica Pais",
+      "programa": "Programa",
+      "institucion": "Institucion",
+      "calificaInstitucion": "Califica Institucion",
+      "agencia": "Agencia",
+      "calificaAgencia": "Califica Agencia",
+      "fecha": "Fecha",
+      "contenido": "Contenido",
+      "foto": "Foto"
+    }
+  }
+}

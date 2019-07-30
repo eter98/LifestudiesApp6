@@ -1,0 +1,33 @@
+{
+  "lifestudiesApp6App": {
+    "programas": {
+      "home": {
+        "title": "Programas",
+        "createLabel": "Criar novo Programas",
+        "createOrEditLabel": "Criar ou editar Programas",
+        "search": "Pesquisar por Programas",
+        "notFound": "Nenhum Programas encontrado"
+      },
+      "created": "Um novo Programas foi criado com o identificador {{ param }}",
+      "updated": "Um Programas foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Programas foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Programas {{ id }}?"
+      },
+      "detail": {
+        "title": "Programas"
+      },
+      "registro": "Registro",
+      "moneda": "Moneda",
+      "curso": "Curso",
+      "horario": "Horario",
+      "frecuencia": "Frecuencia",
+      "duracion": "Duracion",
+      "foto1": "Foto 1",
+      "foto2": "Foto 2",
+      "institucion": "Institucion",
+      "ciudad": "Ciudad",
+      "tipoPrograma": "Tipo Programa"
+    }
+  }
+}

@@ -1,0 +1,147 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lifestudiesApp6App.perfilUsuario.home.title">Perfil Usuarios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-perfil-usuario" [routerLink]="['/perfil-usuario/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="lifestudiesApp6App.perfilUsuario.home.createLabel">
+            Create new Perfil Usuario
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'lifestudiesApp6App.perfilUsuario.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="perfilUsuarios?.length === 0">
+        <span jhiTranslate="lifestudiesApp6App.perfilUsuario.home.notFound">No perfilUsuarios found</span>
+    </div>
+    <div class="table-responsive" *ngIf="perfilUsuarios?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaNacimiento"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.fechaNacimiento">Fecha Nacimiento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="identificacion"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.identificacion">Identificacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mail"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.mail">Mail</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="area"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.area">Area</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="telefono"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.telefono">Telefono</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nivelAcademico"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.nivelAcademico">Nivel Academico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="areaAcademica"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.areaAcademica">Area Academica</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terminoAcademico"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.terminoAcademico">Termino Academico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="puntajeICFES"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.puntajeICFES">Puntaje ICFES</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="promedioAcademico"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.promedioAcademico">Promedio Academico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dominioIdioma"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.dominioIdioma">Dominio Idioma</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="idiomas"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.idiomas">Idiomas</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="examenIdioma"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.examenIdioma">Examen Idioma</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="examenRealizado"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.examenRealizado">Examen Realizado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="puntajeIdioma"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.puntajeIdioma">Puntaje Idioma</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="becaOtorgada"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.becaOtorgada">Beca Otorgada</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoBeca"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.tipoBeca">Tipo Beca</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="becaInstitucion"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.becaInstitucion">Beca Institucion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="grupoSocial"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.grupoSocial">Grupo Social</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fundacion"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.fundacion">Fundacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="monitor"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.monitor">Monitor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="monitorMateria"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.monitorMateria">Monitor Materia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="logrosAcademicos"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.logrosAcademicos">Logros Academicos</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="experienciaLaboral"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.experienciaLaboral">Experiencia Laboral</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="areaLaboral"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.areaLaboral">Area Laboral</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="programarealizar"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.programarealizar">Programarealizar</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="programaArea"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.programaArea">Programa Area</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaInicio"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.fechaInicio">Fecha Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="programaEncontrado"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.programaEncontrado">Programa Encontrado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombrePrograma"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.nombrePrograma">Nombre Programa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="universidad"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.universidad">Universidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pais"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.pais">Pais</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="merecedorBeca"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.merecedorBeca">Merecedor Beca</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="foto"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.foto">Foto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usuario.login"><span jhiTranslate="lifestudiesApp6App.perfilUsuario.usuario">Usuario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let perfilUsuario of perfilUsuarios ;trackBy: trackId">
+                <td><a [routerLink]="['/perfil-usuario', perfilUsuario.id, 'view' ]">{{perfilUsuario.id}}</a></td>
+                <td>{{perfilUsuario.fechaNacimiento | date:'mediumDate'}}</td>
+                <td>{{perfilUsuario.identificacion}}</td>
+                <td>{{perfilUsuario.mail}}</td>
+                <td>{{perfilUsuario.area}}</td>
+                <td>{{perfilUsuario.telefono}}</td>
+                <td>{{perfilUsuario.nivelAcademico}}</td>
+                <td>{{perfilUsuario.areaAcademica}}</td>
+                <td>{{perfilUsuario.terminoAcademico}}</td>
+                <td>{{perfilUsuario.puntajeICFES}}</td>
+                <td>{{perfilUsuario.promedioAcademico}}</td>
+                <td>{{perfilUsuario.dominioIdioma}}</td>
+                <td>{{perfilUsuario.idiomas}}</td>
+                <td>{{perfilUsuario.examenIdioma}}</td>
+                <td>{{perfilUsuario.examenRealizado}}</td>
+                <td>{{perfilUsuario.puntajeIdioma}}</td>
+                <td>{{perfilUsuario.becaOtorgada}}</td>
+                <td>{{perfilUsuario.tipoBeca}}</td>
+                <td>{{perfilUsuario.becaInstitucion}}</td>
+                <td>{{perfilUsuario.grupoSocial}}</td>
+                <td>{{perfilUsuario.fundacion}}</td>
+                <td>{{perfilUsuario.monitor}}</td>
+                <td>{{perfilUsuario.monitorMateria}}</td>
+                <td>{{perfilUsuario.logrosAcademicos}}</td>
+                <td>{{perfilUsuario.experienciaLaboral}}</td>
+                <td>{{perfilUsuario.areaLaboral}}</td>
+                <td>{{perfilUsuario.programarealizar}}</td>
+                <td>{{perfilUsuario.programaArea}}</td>
+                <td>{{perfilUsuario.fechaInicio | date:'mediumDate'}}</td>
+                <td>{{perfilUsuario.programaEncontrado}}</td>
+                <td>{{perfilUsuario.nombrePrograma}}</td>
+                <td>{{perfilUsuario.universidad}}</td>
+                <td>{{perfilUsuario.pais}}</td>
+                <td>{{perfilUsuario.merecedorBeca}}</td>
+                <td>
+                    <a *ngIf="perfilUsuario.foto" (click)="openFile(perfilUsuario.fotoContentType, perfilUsuario.foto)">
+                        <img [src]="'data:' + perfilUsuario.fotoContentType + ';base64,' + perfilUsuario.foto" style="max-height: 30px;" alt="perfilUsuario image"/>
+                    </a>
+                    <span *ngIf="perfilUsuario.foto">{{perfilUsuario.fotoContentType}}, {{byteSize(perfilUsuario.foto)}}</span>
+                </td>
+                <td>
+                    {{perfilUsuario.usuario?.login}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/perfil-usuario', perfilUsuario.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/perfil-usuario', perfilUsuario.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'perfil-usuario', { outlets: { popup: perfilUsuario.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

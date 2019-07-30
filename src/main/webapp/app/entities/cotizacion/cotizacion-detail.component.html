@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cotizacion">
+            <h2><span jhiTranslate="lifestudiesApp6App.cotizacion.detail.title">Cotizacion</span> {{cotizacion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lifestudiesApp6App.cotizacion.fechaViaje">Fecha Viaje</span></dt>
+                <dd>
+                    <span>{{cotizacion.fechaViaje}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cotizacion.alojamiento">Alojamiento</span></dt>
+                <dd>
+                    <span>{{cotizacion.alojamiento}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cotizacion.pasajeAereo">Pasaje Aereo</span></dt>
+                <dd>
+                    <span>{{cotizacion.pasajeAereo}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cotizacion.transpAeropuerto">Transp Aeropuerto</span></dt>
+                <dd>
+                    <span>{{cotizacion.transpAeropuerto}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cotizacion.usario">Usario</span></dt>
+                <dd>
+                    <div *ngIf="cotizacion.usario">
+                        <a [routerLink]="['/perfil-usuario', cotizacion.usario?.id, 'view']">{{cotizacion.usario?.identificacion}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.cotizacion.curso">Curso</span></dt>
+                <dd>
+                    <div *ngIf="cotizacion.curso">
+                        <a [routerLink]="['/programas', cotizacion.curso?.id, 'view']">{{cotizacion.curso?.curso}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cotizacion', cotizacion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

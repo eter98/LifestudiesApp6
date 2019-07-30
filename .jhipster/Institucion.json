@@ -1,0 +1,165 @@
+{
+    "name": "Institucion",
+    "fields": [
+        {
+            "fieldName": "codigo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "website",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contacto",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "representante",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "skype",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipoProgramas",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "programaEstandar",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "programaIntensivo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "programaNegocios",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "preparacionExamen",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "programaAcademico",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descuento",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "inscripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "materiales",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "seguroMedico",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "alojamientoSencillo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "alojamientoDoble",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "transporteAeropuerto",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipoCurso",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "temporadaAlta",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "temporadaBaja",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fechaInicial",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "horarios",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "instalaciones",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nacionalidad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "foto1",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "foto2",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "foto3",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ciudad",
+            "otherEntityRelationshipName": "institucion",
+            "relationshipName": "ciudad",
+            "otherEntityField": "nombreCiudad"
+        }
+    ],
+    "changelogDate": "20190730133922",
+    "entityTableName": "institucion",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

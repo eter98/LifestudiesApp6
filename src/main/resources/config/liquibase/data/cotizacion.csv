@@ -1,0 +1,11 @@
+id;fecha_viaje;alojamiento;pasaje_aereo;transp_aeropuerto
+1;2019-07-30;true;true;true
+2;2019-07-30;false;false;false
+3;2019-07-29;true;false;true
+4;2019-07-30;false;false;true
+5;2019-07-30;false;false;true
+6;2019-07-30;false;false;false
+7;2019-07-29;false;false;true
+8;2019-07-29;false;true;false
+9;2019-07-30;false;true;true
+10;2019-07-30;true;true;false

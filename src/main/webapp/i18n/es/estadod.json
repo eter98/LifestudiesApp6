@@ -1,0 +1,11 @@
+{
+  "lifestudiesApp6App": {
+    "Estadod": {
+      "null": "",
+      "Pendiente": "Pendiente",
+      "EnProceso": "EnProceso",
+      "Finalizado": "Finalizado",
+      "Expirado": "Expirado"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "lifestudiesApp6App": {
+    "tipoPrograma": {
+      "home": {
+        "title": "Tipo Programas",
+        "createLabel": "Create a new Tipo Programa",
+        "createOrEditLabel": "Create or edit a Tipo Programa",
+        "search": "Search for Tipo Programa",
+        "notFound": "No Tipo Programa found"
+      },
+      "created": "A new Tipo Programa is created with identifier {{ param }}",
+      "updated": "A Tipo Programa is updated with identifier {{ param }}",
+      "deleted": "A Tipo Programa is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tipo Programa {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Programa"
+      },
+      "tipoPrograma": "Tipo Programa"
+    }
+  }
+}

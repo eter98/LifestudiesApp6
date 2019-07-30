@@ -1,0 +1,69 @@
+{
+  "lifestudiesApp6App": {
+    "viabilidadVisa": {
+      "home": {
+        "title": "Viabilidad Visas",
+        "createLabel": "Create a new Viabilidad Visa",
+        "createOrEditLabel": "Create or edit a Viabilidad Visa",
+        "search": "Search for Viabilidad Visa",
+        "notFound": "No Viabilidad Visa found"
+      },
+      "created": "A new Viabilidad Visa is created with identifier {{ param }}",
+      "updated": "A Viabilidad Visa is updated with identifier {{ param }}",
+      "deleted": "A Viabilidad Visa is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Viabilidad Visa {{ id }}?"
+      },
+      "detail": {
+        "title": "Viabilidad Visa"
+      },
+      "destino": "Destino",
+      "tipoPrograma": "Tipo Programa",
+      "duracion": "Duracion",
+      "nacionalidadPrincipal": "Nacionalidad Principal",
+      "otraNacionalidad": "Otra Nacionalidad",
+      "fechaNacimiento": "Fecha Nacimiento",
+      "genero": "Genero",
+      "estadoCivil": "Estado Civil",
+      "viajaAcompanado": "Viaja Acompanado",
+      "personasCargo": "Personas Cargo",
+      "nivelAcademico": "Nivel Academico",
+      "profesion": "Profesion",
+      "fechaGadruacion": "Fecha Gadruacion",
+      "ocupacionActual": "Ocupacion Actual",
+      "carta": "Carta",
+      "suspendidoEstudios": "Suspendido Estudios",
+      "peridoSupencionEstu": "Perido Supencion Estu",
+      "razonSuspencion": "Razon Suspencion",
+      "tipoContrato": "Tipo Contrato",
+      "licenciaLaboral": "Licencia Laboral",
+      "nivelSalarial": "Nivel Salarial",
+      "tipoLaborIndependiente": "Tipo Labor Independiente",
+      "tiempoIndependiente": "Tiempo Independiente",
+      "nivelIngresosIndependiente": "Nivel Ingresos Independiente",
+      "tiempoDesempleado": "Tiempo Desempleado",
+      "quienFinanciaEstudios": "Quien Financia Estudios",
+      "parentesco": "Parentesco",
+      "presupuestoDisponible": "Presupuesto Disponible",
+      "ahorroDisponible": "Ahorro Disponible",
+      "idioma": "Idioma",
+      "certificarIdioma": "Certificar Idioma",
+      "certificacionIdioma": "Certificacion Idioma",
+      "puntajeCertificacion": "Puntaje Certificacion",
+      "salidasPais": "Salidas Pais",
+      "paisesVisitados": "Paises Visitados",
+      "visaPais": "Visa Pais",
+      "estudiadoAnterior": "Estudiado Anterior",
+      "fueraPais": "Fuera Pais",
+      "paisFuera": "Pais Fuera",
+      "extenderEstadia": "Extender Estadia",
+      "negadoVisa": "Negado Visa",
+      "paisNegado": "Pais Negado",
+      "familiaresDestino": "Familiares Destino",
+      "estatusMigratorio": "Estatus Migratorio",
+      "nombre": "Nombre",
+      "apelliod": "Apelliod",
+      "correo": "Correo"
+    }
+  }
+}

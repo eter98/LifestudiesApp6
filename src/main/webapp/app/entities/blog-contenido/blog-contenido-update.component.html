@@ -1,0 +1,172 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-blog-contenido-heading" jhiTranslate="lifestudiesApp6App.blogContenido.home.createOrEditLabel">Create or edit a Blog Contenido</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.apellido" for="field_apellido">Apellido</label>
+                    <input type="text" class="form-control" name="apellido" id="field_apellido"
+                           formControlName="apellido"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.correo" for="field_correo">Correo</label>
+                    <input type="text" class="form-control" name="correo" id="field_correo"
+                           formControlName="correo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.nacionalidad" for="field_nacionalidad">Nacionalidad</label>
+                    <select class="form-control" name="nacionalidad" formControlName="nacionalidad" id="field_nacionalidad">
+                        <option value="Argentina">{{'lifestudiesApp6App.Nacionalidadd.Argentina' | translate}}</option>
+                        <option value="Bolivia">{{'lifestudiesApp6App.Nacionalidadd.Bolivia' | translate}}</option>
+                        <option value="Brasil">{{'lifestudiesApp6App.Nacionalidadd.Brasil' | translate}}</option>
+                        <option value="Chile">{{'lifestudiesApp6App.Nacionalidadd.Chile' | translate}}</option>
+                        <option value="Colombia">{{'lifestudiesApp6App.Nacionalidadd.Colombia' | translate}}</option>
+                        <option value="Costa_Rica">{{'lifestudiesApp6App.Nacionalidadd.Costa_Rica' | translate}}</option>
+                        <option value="Ecuador">{{'lifestudiesApp6App.Nacionalidadd.Ecuador' | translate}}</option>
+                        <option value="Guatemala">{{'lifestudiesApp6App.Nacionalidadd.Guatemala' | translate}}</option>
+                        <option value="Honduras">{{'lifestudiesApp6App.Nacionalidadd.Honduras' | translate}}</option>
+                        <option value="Mexico">{{'lifestudiesApp6App.Nacionalidadd.Mexico' | translate}}</option>
+                        <option value="Nicaragua">{{'lifestudiesApp6App.Nacionalidadd.Nicaragua' | translate}}</option>
+                        <option value="Panama">{{'lifestudiesApp6App.Nacionalidadd.Panama' | translate}}</option>
+                        <option value="Paraguay">{{'lifestudiesApp6App.Nacionalidadd.Paraguay' | translate}}</option>
+                        <option value="Peru">{{'lifestudiesApp6App.Nacionalidadd.Peru' | translate}}</option>
+                        <option value="Uruguay">{{'lifestudiesApp6App.Nacionalidadd.Uruguay' | translate}}</option>
+                        <option value="Venezuela">{{'lifestudiesApp6App.Nacionalidadd.Venezuela' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.paisEstudio" for="field_paisEstudio">Pais Estudio</label>
+                    <select class="form-control" name="paisEstudio" formControlName="paisEstudio" id="field_paisEstudio">
+                        <option value="ALEMANIA">{{'lifestudiesApp6App.Destinod.ALEMANIA' | translate}}</option>
+                        <option value="AUSTRALIA">{{'lifestudiesApp6App.Destinod.AUSTRALIA' | translate}}</option>
+                        <option value="CANADA">{{'lifestudiesApp6App.Destinod.CANADA' | translate}}</option>
+                        <option value="ESPANA">{{'lifestudiesApp6App.Destinod.ESPANA' | translate}}</option>
+                        <option value="ESTADOS_UNIDOS">{{'lifestudiesApp6App.Destinod.ESTADOS_UNIDOS' | translate}}</option>
+                        <option value="FRANCIA">{{'lifestudiesApp6App.Destinod.FRANCIA' | translate}}</option>
+                        <option value="INGLATERRA">{{'lifestudiesApp6App.Destinod.INGLATERRA' | translate}}</option>
+                        <option value="IRLANDA">{{'lifestudiesApp6App.Destinod.IRLANDA' | translate}}</option>
+                        <option value="ITALIA">{{'lifestudiesApp6App.Destinod.ITALIA' | translate}}</option>
+                        <option value="JAPON">{{'lifestudiesApp6App.Destinod.JAPON' | translate}}</option>
+                        <option value="MALTA">{{'lifestudiesApp6App.Destinod.MALTA' | translate}}</option>
+                        <option value="NUEVA_ZELANDA">{{'lifestudiesApp6App.Destinod.NUEVA_ZELANDA' | translate}}</option>
+                        <option value="SUDAFRICA">{{'lifestudiesApp6App.Destinod.SUDAFRICA' | translate}}</option>
+                        <option value="SUIZA">{{'lifestudiesApp6App.Destinod.SUIZA' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.calificacionPais" for="field_calificacionPais">Calificacion Pais</label>
+                    <input type="number" class="form-control" name="calificacionPais" id="field_calificacionPais"
+                           formControlName="calificacionPais"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.ciudadVive" for="field_ciudadVive">Ciudad Vive</label>
+                    <input type="text" class="form-control" name="ciudadVive" id="field_ciudadVive"
+                           formControlName="ciudadVive"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.calificacionCiudad" for="field_calificacionCiudad">Calificacion Ciudad</label>
+                    <input type="number" class="form-control" name="calificacionCiudad" id="field_calificacionCiudad"
+                           formControlName="calificacionCiudad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.programaRealizado" for="field_programaRealizado">Programa Realizado</label>
+                    <input type="text" class="form-control" name="programaRealizado" id="field_programaRealizado"
+                           formControlName="programaRealizado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.institucionEstudio" for="field_institucionEstudio">Institucion Estudio</label>
+                    <input type="text" class="form-control" name="institucionEstudio" id="field_institucionEstudio"
+                           formControlName="institucionEstudio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.calificacionInstitucion" for="field_calificacionInstitucion">Calificacion Institucion</label>
+                    <input type="number" class="form-control" name="calificacionInstitucion" id="field_calificacionInstitucion"
+                           formControlName="calificacionInstitucion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.agenciaEstudios" for="field_agenciaEstudios">Agencia Estudios</label>
+                    <input type="checkbox" class="form-control" name="agenciaEstudios" id="field_agenciaEstudios"
+                           formControlName="agenciaEstudios"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.nombreAgencia" for="field_nombreAgencia">Nombre Agencia</label>
+                    <input type="text" class="form-control" name="nombreAgencia" id="field_nombreAgencia"
+                           formControlName="nombreAgencia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.calificacionAgencia" for="field_calificacionAgencia">Calificacion Agencia</label>
+                    <input type="number" class="form-control" name="calificacionAgencia" id="field_calificacionAgencia"
+                           formControlName="calificacionAgencia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.calificacionExperienciaEstudio" for="field_calificacionExperienciaEstudio">Calificacion Experiencia Estudio</label>
+                    <input type="number" class="form-control" name="calificacionExperienciaEstudio" id="field_calificacionExperienciaEstudio"
+                           formControlName="calificacionExperienciaEstudio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.fecha" for="field_fecha">Fecha</label>
+                    <div class="input-group">
+                        <input id="field_fecha" type="text" class="form-control" name="fecha" ngbDatepicker  #fechaDp="ngbDatepicker" formControlName="fecha"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.titulo" for="field_titulo">Titulo</label>
+                    <input type="text" class="form-control" name="titulo" id="field_titulo"
+                           formControlName="titulo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.imagen" for="field_imagen">Imagen</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imagenContentType').value + ';base64,' + editForm.get('imagen').value" style="max-height: 100px;" *ngIf="editForm.get('imagen').value" alt="blogContenido image"/>
+                        <div *ngIf="editForm.get('imagen').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imagenContentType').value}}, {{byteSize(editForm.get('imagen').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imagen', 'imagenContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagen" (change)="setFileData($event, 'imagen', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagen" id="field_imagen"
+                           formControlName="imagen"/>
+                    <input type="hidden" class="form-control" name="imagenContentType" id="field_imagenContentType"
+                           formControlName="imagenContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.contenido" for="field_contenido">Contenido</label>
+                    <textarea class="form-control" name="contenido" id="field_contenido"
+                              formControlName="contenido"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.blogContenido.usuario" for="field_usuario">Usuario</label>
+                    <select class="form-control" id="field_usuario" name="usuario" formControlName="usuario">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('usuario').value?.id ? editForm.get('usuario').value : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

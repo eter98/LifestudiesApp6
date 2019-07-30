@@ -1,0 +1,221 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-perfil-usuario-heading" jhiTranslate="lifestudiesApp6App.perfilUsuario.home.createOrEditLabel">Create or edit a Perfil Usuario</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.fechaNacimiento" for="field_fechaNacimiento">Fecha Nacimiento</label>
+                    <div class="input-group">
+                        <input id="field_fechaNacimiento" type="text" class="form-control" name="fechaNacimiento" ngbDatepicker  #fechaNacimientoDp="ngbDatepicker" formControlName="fechaNacimiento"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaNacimientoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.identificacion" for="field_identificacion">Identificacion</label>
+                    <input type="number" class="form-control" name="identificacion" id="field_identificacion"
+                           formControlName="identificacion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.mail" for="field_mail">Mail</label>
+                    <input type="text" class="form-control" name="mail" id="field_mail"
+                           formControlName="mail"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.area" for="field_area">Area</label>
+                    <input type="number" class="form-control" name="area" id="field_area"
+                           formControlName="area"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.telefono" for="field_telefono">Telefono</label>
+                    <input type="number" class="form-control" name="telefono" id="field_telefono"
+                           formControlName="telefono"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.nivelAcademico" for="field_nivelAcademico">Nivel Academico</label>
+                    <input type="text" class="form-control" name="nivelAcademico" id="field_nivelAcademico"
+                           formControlName="nivelAcademico"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.areaAcademica" for="field_areaAcademica">Area Academica</label>
+                    <input type="text" class="form-control" name="areaAcademica" id="field_areaAcademica"
+                           formControlName="areaAcademica"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.terminoAcademico" for="field_terminoAcademico">Termino Academico</label>
+                    <input type="number" class="form-control" name="terminoAcademico" id="field_terminoAcademico"
+                           formControlName="terminoAcademico"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.puntajeICFES" for="field_puntajeICFES">Puntaje ICFES</label>
+                    <input type="number" class="form-control" name="puntajeICFES" id="field_puntajeICFES"
+                           formControlName="puntajeICFES"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.promedioAcademico" for="field_promedioAcademico">Promedio Academico</label>
+                    <input type="number" class="form-control" name="promedioAcademico" id="field_promedioAcademico"
+                           formControlName="promedioAcademico"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.dominioIdioma" for="field_dominioIdioma">Dominio Idioma</label>
+                    <input type="checkbox" class="form-control" name="dominioIdioma" id="field_dominioIdioma"
+                           formControlName="dominioIdioma"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.idiomas" for="field_idiomas">Idiomas</label>
+                    <input type="text" class="form-control" name="idiomas" id="field_idiomas"
+                           formControlName="idiomas"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.examenIdioma" for="field_examenIdioma">Examen Idioma</label>
+                    <input type="checkbox" class="form-control" name="examenIdioma" id="field_examenIdioma"
+                           formControlName="examenIdioma"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.examenRealizado" for="field_examenRealizado">Examen Realizado</label>
+                    <input type="text" class="form-control" name="examenRealizado" id="field_examenRealizado"
+                           formControlName="examenRealizado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.puntajeIdioma" for="field_puntajeIdioma">Puntaje Idioma</label>
+                    <input type="number" class="form-control" name="puntajeIdioma" id="field_puntajeIdioma"
+                           formControlName="puntajeIdioma"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.becaOtorgada" for="field_becaOtorgada">Beca Otorgada</label>
+                    <input type="checkbox" class="form-control" name="becaOtorgada" id="field_becaOtorgada"
+                           formControlName="becaOtorgada"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.tipoBeca" for="field_tipoBeca">Tipo Beca</label>
+                    <input type="number" class="form-control" name="tipoBeca" id="field_tipoBeca"
+                           formControlName="tipoBeca"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.becaInstitucion" for="field_becaInstitucion">Beca Institucion</label>
+                    <input type="text" class="form-control" name="becaInstitucion" id="field_becaInstitucion"
+                           formControlName="becaInstitucion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.grupoSocial" for="field_grupoSocial">Grupo Social</label>
+                    <input type="checkbox" class="form-control" name="grupoSocial" id="field_grupoSocial"
+                           formControlName="grupoSocial"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.fundacion" for="field_fundacion">Fundacion</label>
+                    <input type="text" class="form-control" name="fundacion" id="field_fundacion"
+                           formControlName="fundacion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.monitor" for="field_monitor">Monitor</label>
+                    <input type="checkbox" class="form-control" name="monitor" id="field_monitor"
+                           formControlName="monitor"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.monitorMateria" for="field_monitorMateria">Monitor Materia</label>
+                    <input type="text" class="form-control" name="monitorMateria" id="field_monitorMateria"
+                           formControlName="monitorMateria"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.logrosAcademicos" for="field_logrosAcademicos">Logros Academicos</label>
+                    <input type="text" class="form-control" name="logrosAcademicos" id="field_logrosAcademicos"
+                           formControlName="logrosAcademicos"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.experienciaLaboral" for="field_experienciaLaboral">Experiencia Laboral</label>
+                    <input type="checkbox" class="form-control" name="experienciaLaboral" id="field_experienciaLaboral"
+                           formControlName="experienciaLaboral"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.areaLaboral" for="field_areaLaboral">Area Laboral</label>
+                    <input type="text" class="form-control" name="areaLaboral" id="field_areaLaboral"
+                           formControlName="areaLaboral"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.programarealizar" for="field_programarealizar">Programarealizar</label>
+                    <input type="number" class="form-control" name="programarealizar" id="field_programarealizar"
+                           formControlName="programarealizar"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.programaArea" for="field_programaArea">Programa Area</label>
+                    <input type="text" class="form-control" name="programaArea" id="field_programaArea"
+                           formControlName="programaArea"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.fechaInicio" for="field_fechaInicio">Fecha Inicio</label>
+                    <div class="input-group">
+                        <input id="field_fechaInicio" type="text" class="form-control" name="fechaInicio" ngbDatepicker  #fechaInicioDp="ngbDatepicker" formControlName="fechaInicio"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaInicioDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.programaEncontrado" for="field_programaEncontrado">Programa Encontrado</label>
+                    <input type="checkbox" class="form-control" name="programaEncontrado" id="field_programaEncontrado"
+                           formControlName="programaEncontrado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.nombrePrograma" for="field_nombrePrograma">Nombre Programa</label>
+                    <input type="text" class="form-control" name="nombrePrograma" id="field_nombrePrograma"
+                           formControlName="nombrePrograma"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.universidad" for="field_universidad">Universidad</label>
+                    <input type="text" class="form-control" name="universidad" id="field_universidad"
+                           formControlName="universidad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.pais" for="field_pais">Pais</label>
+                    <input type="number" class="form-control" name="pais" id="field_pais"
+                           formControlName="pais"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.merecedorBeca" for="field_merecedorBeca">Merecedor Beca</label>
+                    <input type="text" class="form-control" name="merecedorBeca" id="field_merecedorBeca"
+                           formControlName="merecedorBeca"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.foto" for="field_foto">Foto</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('fotoContentType').value + ';base64,' + editForm.get('foto').value" style="max-height: 100px;" *ngIf="editForm.get('foto').value" alt="perfilUsuario image"/>
+                        <div *ngIf="editForm.get('foto').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('fotoContentType').value}}, {{byteSize(editForm.get('foto').value)}}</span>
+                            <button type="button" (click)="clearInputImage('foto', 'fotoContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto" (change)="setFileData($event, 'foto', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto" id="field_foto"
+                           formControlName="foto"/>
+                    <input type="hidden" class="form-control" name="fotoContentType" id="field_fotoContentType"
+                           formControlName="fotoContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.perfilUsuario.usuario" for="field_usuario">Usuario</label>
+                    <select class="form-control" id="field_usuario" name="usuario" formControlName="usuario">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('usuario').value?.id ? editForm.get('usuario').value : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

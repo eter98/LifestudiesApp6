@@ -1,0 +1,107 @@
+{
+    "name": "Agencia",
+    "fields": [
+        {
+            "fieldName": "nombreAgencia",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codigo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "encargado",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "whatsapp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "asesor1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fotoAsesor1",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "asesor2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fotoAsesor2",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "asesor3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fotoAsesor3",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "foto1",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "foto2",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "sede1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sede2",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pais",
+            "otherEntityRelationshipName": "agencia",
+            "relationshipName": "pais",
+            "otherEntityField": "nombrePais"
+        }
+    ],
+    "changelogDate": "20190730133927",
+    "entityTableName": "agencia",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

@@ -1,0 +1,112 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-programas-heading" jhiTranslate="lifestudiesApp6App.programas.home.createOrEditLabel">Create or edit a Programas</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.programas.registro" for="field_registro">Registro</label>
+                    <input type="number" class="form-control" name="registro" id="field_registro"
+                           formControlName="registro"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.programas.moneda" for="field_moneda">Moneda</label>
+                    <select class="form-control" name="moneda" formControlName="moneda" id="field_moneda">
+                        <option value="COP">{{'lifestudiesApp6App.Monedad.COP' | translate}}</option>
+                        <option value="USD">{{'lifestudiesApp6App.Monedad.USD' | translate}}</option>
+                        <option value="EUR">{{'lifestudiesApp6App.Monedad.EUR' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.programas.curso" for="field_curso">Curso</label>
+                    <input type="text" class="form-control" name="curso" id="field_curso"
+                           formControlName="curso"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.programas.horario" for="field_horario">Horario</label>
+                    <input type="text" class="form-control" name="horario" id="field_horario"
+                           formControlName="horario"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.programas.frecuencia" for="field_frecuencia">Frecuencia</label>
+                    <input type="number" class="form-control" name="frecuencia" id="field_frecuencia"
+                           formControlName="frecuencia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.programas.duracion" for="field_duracion">Duracion</label>
+                    <input type="number" class="form-control" name="duracion" id="field_duracion"
+                           formControlName="duracion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.programas.foto1" for="field_foto1">Foto 1</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('foto1ContentType').value + ';base64,' + editForm.get('foto1').value" style="max-height: 100px;" *ngIf="editForm.get('foto1').value" alt="programas image"/>
+                        <div *ngIf="editForm.get('foto1').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('foto1ContentType').value}}, {{byteSize(editForm.get('foto1').value)}}</span>
+                            <button type="button" (click)="clearInputImage('foto1', 'foto1ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto1" (change)="setFileData($event, 'foto1', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto1" id="field_foto1"
+                           formControlName="foto1"/>
+                    <input type="hidden" class="form-control" name="foto1ContentType" id="field_foto1ContentType"
+                           formControlName="foto1ContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.programas.foto2" for="field_foto2">Foto 2</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('foto2ContentType').value + ';base64,' + editForm.get('foto2').value" style="max-height: 100px;" *ngIf="editForm.get('foto2').value" alt="programas image"/>
+                        <div *ngIf="editForm.get('foto2').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('foto2ContentType').value}}, {{byteSize(editForm.get('foto2').value)}}</span>
+                            <button type="button" (click)="clearInputImage('foto2', 'foto2ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_foto2" (change)="setFileData($event, 'foto2', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="foto2" id="field_foto2"
+                           formControlName="foto2"/>
+                    <input type="hidden" class="form-control" name="foto2ContentType" id="field_foto2ContentType"
+                           formControlName="foto2ContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.programas.institucion" for="field_institucion">Institucion</label>
+                    <select class="form-control" id="field_institucion" name="institucion" formControlName="institucion">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="institucionOption.id === editForm.get('institucion').value?.id ? editForm.get('institucion').value : institucionOption" *ngFor="let institucionOption of institucions; trackBy: trackInstitucionById">{{institucionOption.nombre}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.programas.ciudad" for="field_ciudad">Ciudad</label>
+                    <select class="form-control" id="field_ciudad" name="ciudad" formControlName="ciudad">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ciudadOption.id === editForm.get('ciudad').value?.id ? editForm.get('ciudad').value : ciudadOption" *ngFor="let ciudadOption of ciudads; trackBy: trackCiudadById">{{ciudadOption.nombreCiudad}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.programas.tipoPrograma" for="field_tipoPrograma">Tipo Programa</label>
+                    <select class="form-control" id="field_tipoPrograma" name="tipoPrograma" formControlName="tipoPrograma">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoProgramaOption.id === editForm.get('tipoPrograma').value?.id ? editForm.get('tipoPrograma').value : tipoProgramaOption" *ngFor="let tipoProgramaOption of tipoprogramas; trackBy: trackTipoProgramaById">{{tipoProgramaOption.tipoPrograma}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "lifestudiesApp6App": {
+    "TipoContratod": {
+      "null": "",
+      "TERMINO_FIJO": "TERMINO_FIJO",
+      "TERMINO_INDEFNIDO": "TERMINO_INDEFNIDO",
+      "PRESTACION_SERVICIOS": "PRESTACION_SERVICIOS"
+    }
+  }
+}

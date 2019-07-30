@@ -1,0 +1,164 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lifestudiesApp6App.institucion.home.title">Institucions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-institucion" [routerLink]="['/institucion/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="lifestudiesApp6App.institucion.home.createLabel">
+            Create new Institucion
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'lifestudiesApp6App.institucion.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="institucions?.length === 0">
+        <span jhiTranslate="lifestudiesApp6App.institucion.home.notFound">No institucions found</span>
+    </div>
+    <div class="table-responsive" *ngIf="institucions?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codigo"><span jhiTranslate="lifestudiesApp6App.institucion.codigo">Codigo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="lifestudiesApp6App.institucion.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descripcion"><span jhiTranslate="lifestudiesApp6App.institucion.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="direccion"><span jhiTranslate="lifestudiesApp6App.institucion.direccion">Direccion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="website"><span jhiTranslate="lifestudiesApp6App.institucion.website">Website</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contacto"><span jhiTranslate="lifestudiesApp6App.institucion.contacto">Contacto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="representante"><span jhiTranslate="lifestudiesApp6App.institucion.representante">Representante</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="skype"><span jhiTranslate="lifestudiesApp6App.institucion.skype">Skype</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="telefono"><span jhiTranslate="lifestudiesApp6App.institucion.telefono">Telefono</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estatus"><span jhiTranslate="lifestudiesApp6App.institucion.estatus">Estatus</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoProgramas"><span jhiTranslate="lifestudiesApp6App.institucion.tipoProgramas">Tipo Programas</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="programaEstandar"><span jhiTranslate="lifestudiesApp6App.institucion.programaEstandar">Programa Estandar</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="programaIntensivo"><span jhiTranslate="lifestudiesApp6App.institucion.programaIntensivo">Programa Intensivo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="programaNegocios"><span jhiTranslate="lifestudiesApp6App.institucion.programaNegocios">Programa Negocios</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="preparacionExamen"><span jhiTranslate="lifestudiesApp6App.institucion.preparacionExamen">Preparacion Examen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="programaAcademico"><span jhiTranslate="lifestudiesApp6App.institucion.programaAcademico">Programa Academico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descuento"><span jhiTranslate="lifestudiesApp6App.institucion.descuento">Descuento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="inscripcion"><span jhiTranslate="lifestudiesApp6App.institucion.inscripcion">Inscripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="materiales"><span jhiTranslate="lifestudiesApp6App.institucion.materiales">Materiales</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="seguroMedico"><span jhiTranslate="lifestudiesApp6App.institucion.seguroMedico">Seguro Medico</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="alojamientoSencillo"><span jhiTranslate="lifestudiesApp6App.institucion.alojamientoSencillo">Alojamiento Sencillo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="alojamientoDoble"><span jhiTranslate="lifestudiesApp6App.institucion.alojamientoDoble">Alojamiento Doble</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="transporteAeropuerto"><span jhiTranslate="lifestudiesApp6App.institucion.transporteAeropuerto">Transporte Aeropuerto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoCurso"><span jhiTranslate="lifestudiesApp6App.institucion.tipoCurso">Tipo Curso</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="temporadaAlta"><span jhiTranslate="lifestudiesApp6App.institucion.temporadaAlta">Temporada Alta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="temporadaBaja"><span jhiTranslate="lifestudiesApp6App.institucion.temporadaBaja">Temporada Baja</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaInicial"><span jhiTranslate="lifestudiesApp6App.institucion.fechaInicial">Fecha Inicial</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="horarios"><span jhiTranslate="lifestudiesApp6App.institucion.horarios">Horarios</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="instalaciones"><span jhiTranslate="lifestudiesApp6App.institucion.instalaciones">Instalaciones</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nacionalidad"><span jhiTranslate="lifestudiesApp6App.institucion.nacionalidad">Nacionalidad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="logo"><span jhiTranslate="lifestudiesApp6App.institucion.logo">Logo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="foto1"><span jhiTranslate="lifestudiesApp6App.institucion.foto1">Foto 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="foto2"><span jhiTranslate="lifestudiesApp6App.institucion.foto2">Foto 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="foto3"><span jhiTranslate="lifestudiesApp6App.institucion.foto3">Foto 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ciudad.nombreCiudad"><span jhiTranslate="lifestudiesApp6App.institucion.ciudad">Ciudad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let institucion of institucions ;trackBy: trackId">
+                <td><a [routerLink]="['/institucion', institucion.id, 'view' ]">{{institucion.id}}</a></td>
+                <td>{{institucion.codigo}}</td>
+                <td>{{institucion.nombre}}</td>
+                <td>{{institucion.descripcion}}</td>
+                <td>{{institucion.direccion}}</td>
+                <td>{{institucion.website}}</td>
+                <td>{{institucion.contacto}}</td>
+                <td>{{institucion.representante}}</td>
+                <td>{{institucion.skype}}</td>
+                <td>{{institucion.telefono}}</td>
+                <td>{{institucion.estatus}}</td>
+                <td>{{institucion.tipoProgramas}}</td>
+                <td>{{institucion.programaEstandar}}</td>
+                <td>{{institucion.programaIntensivo}}</td>
+                <td>{{institucion.programaNegocios}}</td>
+                <td>{{institucion.preparacionExamen}}</td>
+                <td>{{institucion.programaAcademico}}</td>
+                <td>{{institucion.descuento}}</td>
+                <td>{{institucion.inscripcion}}</td>
+                <td>{{institucion.materiales}}</td>
+                <td>{{institucion.seguroMedico}}</td>
+                <td>{{institucion.alojamientoSencillo}}</td>
+                <td>{{institucion.alojamientoDoble}}</td>
+                <td>{{institucion.transporteAeropuerto}}</td>
+                <td>{{institucion.tipoCurso}}</td>
+                <td>{{institucion.temporadaAlta}}</td>
+                <td>{{institucion.temporadaBaja}}</td>
+                <td>{{institucion.fechaInicial | date:'mediumDate'}}</td>
+                <td>{{institucion.horarios}}</td>
+                <td>{{institucion.instalaciones}}</td>
+                <td>{{institucion.nacionalidad}}</td>
+                <td>
+                    <a *ngIf="institucion.logo" (click)="openFile(institucion.logoContentType, institucion.logo)">
+                        <img [src]="'data:' + institucion.logoContentType + ';base64,' + institucion.logo" style="max-height: 30px;" alt="institucion image"/>
+                    </a>
+                    <span *ngIf="institucion.logo">{{institucion.logoContentType}}, {{byteSize(institucion.logo)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="institucion.foto1" (click)="openFile(institucion.foto1ContentType, institucion.foto1)">
+                        <img [src]="'data:' + institucion.foto1ContentType + ';base64,' + institucion.foto1" style="max-height: 30px;" alt="institucion image"/>
+                    </a>
+                    <span *ngIf="institucion.foto1">{{institucion.foto1ContentType}}, {{byteSize(institucion.foto1)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="institucion.foto2" (click)="openFile(institucion.foto2ContentType, institucion.foto2)">
+                        <img [src]="'data:' + institucion.foto2ContentType + ';base64,' + institucion.foto2" style="max-height: 30px;" alt="institucion image"/>
+                    </a>
+                    <span *ngIf="institucion.foto2">{{institucion.foto2ContentType}}, {{byteSize(institucion.foto2)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="institucion.foto3" (click)="openFile(institucion.foto3ContentType, institucion.foto3)">
+                        <img [src]="'data:' + institucion.foto3ContentType + ';base64,' + institucion.foto3" style="max-height: 30px;" alt="institucion image"/>
+                    </a>
+                    <span *ngIf="institucion.foto3">{{institucion.foto3ContentType}}, {{byteSize(institucion.foto3)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="institucion.ciudad">
+                        <a [routerLink]="['../ciudad', institucion.ciudad?.id, 'view' ]" >{{institucion.ciudad?.nombreCiudad}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/institucion', institucion.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/institucion', institucion.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'institucion', { outlets: { popup: institucion.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

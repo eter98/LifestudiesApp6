@@ -1,0 +1,114 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="lifestudiesApp6App.programas.home.title">Programas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-programas" [routerLink]="['/programas/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="lifestudiesApp6App.programas.home.createLabel">
+            Create new Programas
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'lifestudiesApp6App.programas.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="programas?.length === 0">
+        <span jhiTranslate="lifestudiesApp6App.programas.home.notFound">No programas found</span>
+    </div>
+    <div class="table-responsive" *ngIf="programas?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="registro"><span jhiTranslate="lifestudiesApp6App.programas.registro">Registro</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="moneda"><span jhiTranslate="lifestudiesApp6App.programas.moneda">Moneda</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="curso"><span jhiTranslate="lifestudiesApp6App.programas.curso">Curso</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="horario"><span jhiTranslate="lifestudiesApp6App.programas.horario">Horario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="frecuencia"><span jhiTranslate="lifestudiesApp6App.programas.frecuencia">Frecuencia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="duracion"><span jhiTranslate="lifestudiesApp6App.programas.duracion">Duracion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="foto1"><span jhiTranslate="lifestudiesApp6App.programas.foto1">Foto 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="foto2"><span jhiTranslate="lifestudiesApp6App.programas.foto2">Foto 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="institucion.nombre"><span jhiTranslate="lifestudiesApp6App.programas.institucion">Institucion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ciudad.nombreCiudad"><span jhiTranslate="lifestudiesApp6App.programas.ciudad">Ciudad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoPrograma.tipoPrograma"><span jhiTranslate="lifestudiesApp6App.programas.tipoPrograma">Tipo Programa</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let programas of programas ;trackBy: trackId">
+                <td><a [routerLink]="['/programas', programas.id, 'view' ]">{{programas.id}}</a></td>
+                <td>{{programas.registro}}</td>
+                <td jhiTranslate="{{'lifestudiesApp6App.Monedad.' + programas.moneda}}">{{programas.moneda}}</td>
+                <td>{{programas.curso}}</td>
+                <td>{{programas.horario}}</td>
+                <td>{{programas.frecuencia}}</td>
+                <td>{{programas.duracion}}</td>
+                <td>
+                    <a *ngIf="programas.foto1" (click)="openFile(programas.foto1ContentType, programas.foto1)">
+                        <img [src]="'data:' + programas.foto1ContentType + ';base64,' + programas.foto1" style="max-height: 30px;" alt="programas image"/>
+                    </a>
+                    <span *ngIf="programas.foto1">{{programas.foto1ContentType}}, {{byteSize(programas.foto1)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="programas.foto2" (click)="openFile(programas.foto2ContentType, programas.foto2)">
+                        <img [src]="'data:' + programas.foto2ContentType + ';base64,' + programas.foto2" style="max-height: 30px;" alt="programas image"/>
+                    </a>
+                    <span *ngIf="programas.foto2">{{programas.foto2ContentType}}, {{byteSize(programas.foto2)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="programas.institucion">
+                        <a [routerLink]="['../institucion', programas.institucion?.id, 'view' ]" >{{programas.institucion?.nombre}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="programas.ciudad">
+                        <a [routerLink]="['../ciudad', programas.ciudad?.id, 'view' ]" >{{programas.ciudad?.nombreCiudad}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="programas.tipoPrograma">
+                        <a [routerLink]="['../tipo-programa', programas.tipoPrograma?.id, 'view' ]" >{{programas.tipoPrograma?.tipoPrograma}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/programas', programas.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/programas', programas.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'programas', { outlets: { popup: programas.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

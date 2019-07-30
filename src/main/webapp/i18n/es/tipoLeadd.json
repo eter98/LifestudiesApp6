@@ -1,0 +1,10 @@
+{
+  "lifestudiesApp6App": {
+    "TipoLeadd": {
+      "null": "",
+      "AltaPrioridad": "AltaPrioridad",
+      "MediaPrioridad": "MediaPrioridad",
+      "BajaPrioridad": "BajaPrioridad"
+    }
+  }
+}

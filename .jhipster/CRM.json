@@ -1,0 +1,82 @@
+{
+    "name": "CRM",
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "documento",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "asesor",
+            "fieldType": "Asesord",
+            "fieldValues": "CarlosFranco,CatalinaFranco"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "Estadod",
+            "fieldValues": "Pendiente,EnProceso,Finalizado,Expirado"
+        },
+        {
+            "fieldName": "tipoLead",
+            "fieldType": "TipoLeadd",
+            "fieldValues": "AltaPrioridad,MediaPrioridad,BajaPrioridad"
+        },
+        {
+            "fieldName": "comentarios",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "cerrado",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "perfilUsuario",
+            "otherEntityRelationshipName": "cRM",
+            "relationshipName": "usuario",
+            "otherEntityField": "identificacion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pasoCRM",
+            "otherEntityRelationshipName": "cRM",
+            "relationshipName": "proceso",
+            "otherEntityField": "descripcion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "agencia",
+            "otherEntityRelationshipName": "cRM",
+            "relationshipName": "agencia",
+            "otherEntityField": "nombreAgencia"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "cotizacion",
+            "otherEntityRelationshipName": "cRM",
+            "relationshipName": "cotizacion",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190730133933",
+    "entityTableName": "crm",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

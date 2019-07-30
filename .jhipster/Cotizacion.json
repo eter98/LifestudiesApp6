@@ -1,0 +1,53 @@
+{
+    "name": "Cotizacion",
+    "fields": [
+        {
+            "fieldName": "fechaViaje",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "alojamiento",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "pasajeAereo",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "transpAeropuerto",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "perfilUsuario",
+            "otherEntityRelationshipName": "cotizacion",
+            "relationshipName": "usario",
+            "otherEntityField": "identificacion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "programas",
+            "otherEntityRelationshipName": "cotizacion",
+            "relationshipName": "curso",
+            "otherEntityField": "curso"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cRM",
+            "otherEntityRelationshipName": "cotizacion",
+            "relationshipName": "cRM"
+        }
+    ],
+    "changelogDate": "20190730133925",
+    "entityTableName": "cotizacion",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

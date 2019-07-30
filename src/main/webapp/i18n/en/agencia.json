@@ -1,0 +1,42 @@
+{
+  "lifestudiesApp6App": {
+    "agencia": {
+      "home": {
+        "title": "Agencias",
+        "createLabel": "Create a new Agencia",
+        "createOrEditLabel": "Create or edit a Agencia",
+        "search": "Search for Agencia",
+        "notFound": "No Agencia found"
+      },
+      "created": "A new Agencia is created with identifier {{ param }}",
+      "updated": "A Agencia is updated with identifier {{ param }}",
+      "deleted": "A Agencia is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Agencia {{ id }}?"
+      },
+      "detail": {
+        "title": "Agencia"
+      },
+      "nombreAgencia": "Nombre Agencia",
+      "codigo": "Codigo",
+      "descripcion": "Descripcion",
+      "encargado": "Encargado",
+      "direccion": "Direccion",
+      "telefono": "Telefono",
+      "email": "Email",
+      "whatsapp": "Whatsapp",
+      "asesor1": "Asesor 1",
+      "fotoAsesor1": "Foto Asesor 1",
+      "asesor2": "Asesor 2",
+      "fotoAsesor2": "Foto Asesor 2",
+      "asesor3": "Asesor 3",
+      "fotoAsesor3": "Foto Asesor 3",
+      "logo": "Logo",
+      "foto1": "Foto 1",
+      "foto2": "Foto 2",
+      "sede1": "Sede 1",
+      "sede2": "Sede 2",
+      "pais": "Pais"
+    }
+  }
+}

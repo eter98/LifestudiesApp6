@@ -1,0 +1,33 @@
+{
+  "lifestudiesApp6App": {
+    "programas": {
+      "home": {
+        "title": "Programas",
+        "createLabel": "Create a new Programas",
+        "createOrEditLabel": "Create or edit a Programas",
+        "search": "Search for Programas",
+        "notFound": "No Programas found"
+      },
+      "created": "A new Programas is created with identifier {{ param }}",
+      "updated": "A Programas is updated with identifier {{ param }}",
+      "deleted": "A Programas is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Programas {{ id }}?"
+      },
+      "detail": {
+        "title": "Programas"
+      },
+      "registro": "Registro",
+      "moneda": "Moneda",
+      "curso": "Curso",
+      "horario": "Horario",
+      "frecuencia": "Frecuencia",
+      "duracion": "Duracion",
+      "foto1": "Foto 1",
+      "foto2": "Foto 2",
+      "institucion": "Institucion",
+      "ciudad": "Ciudad",
+      "tipoPrograma": "Tipo Programa"
+    }
+  }
+}

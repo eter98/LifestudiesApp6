@@ -1,0 +1,398 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-viabilidad-visa-heading" jhiTranslate="lifestudiesApp6App.viabilidadVisa.home.createOrEditLabel">Create or edit a Viabilidad Visa</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.destino" for="field_destino">Destino</label>
+                    <select class="form-control" name="destino" formControlName="destino" id="field_destino">
+                        <option value="ALEMANIA">{{'lifestudiesApp6App.Destinod.ALEMANIA' | translate}}</option>
+                        <option value="AUSTRALIA">{{'lifestudiesApp6App.Destinod.AUSTRALIA' | translate}}</option>
+                        <option value="CANADA">{{'lifestudiesApp6App.Destinod.CANADA' | translate}}</option>
+                        <option value="ESPANA">{{'lifestudiesApp6App.Destinod.ESPANA' | translate}}</option>
+                        <option value="ESTADOS_UNIDOS">{{'lifestudiesApp6App.Destinod.ESTADOS_UNIDOS' | translate}}</option>
+                        <option value="FRANCIA">{{'lifestudiesApp6App.Destinod.FRANCIA' | translate}}</option>
+                        <option value="INGLATERRA">{{'lifestudiesApp6App.Destinod.INGLATERRA' | translate}}</option>
+                        <option value="IRLANDA">{{'lifestudiesApp6App.Destinod.IRLANDA' | translate}}</option>
+                        <option value="ITALIA">{{'lifestudiesApp6App.Destinod.ITALIA' | translate}}</option>
+                        <option value="JAPON">{{'lifestudiesApp6App.Destinod.JAPON' | translate}}</option>
+                        <option value="MALTA">{{'lifestudiesApp6App.Destinod.MALTA' | translate}}</option>
+                        <option value="NUEVA_ZELANDA">{{'lifestudiesApp6App.Destinod.NUEVA_ZELANDA' | translate}}</option>
+                        <option value="SUDAFRICA">{{'lifestudiesApp6App.Destinod.SUDAFRICA' | translate}}</option>
+                        <option value="SUIZA">{{'lifestudiesApp6App.Destinod.SUIZA' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.tipoPrograma" for="field_tipoPrograma">Tipo Programa</label>
+                    <select class="form-control" name="tipoPrograma" formControlName="tipoPrograma" id="field_tipoPrograma">
+                        <option value="Programas_Idiomas">{{'lifestudiesApp6App.TipoProgramad.Programas_Idiomas' | translate}}</option>
+                        <option value="Curso_Verano_idiomas">{{'lifestudiesApp6App.TipoProgramad.Curso_Verano_idiomas' | translate}}</option>
+                        <option value="Programa_preparacion_Examenes_idioma">{{'lifestudiesApp6App.TipoProgramad.Programa_preparacion_Examenes_idioma' | translate}}</option>
+                        <option value="Programa_Pregrado">{{'lifestudiesApp6App.TipoProgramad.Programa_Pregrado' | translate}}</option>
+                        <option value="Programa_Posgrado">{{'lifestudiesApp6App.TipoProgramad.Programa_Posgrado' | translate}}</option>
+                        <option value="Programas_Cortos_Ejecutivos">{{'lifestudiesApp6App.TipoProgramad.Programas_Cortos_Ejecutivos' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.duracion" for="field_duracion">Duracion</label>
+                    <select class="form-control" name="duracion" formControlName="duracion" id="field_duracion">
+                        <option value="UN_MES">{{'lifestudiesApp6App.Duraciond.UN_MES' | translate}}</option>
+                        <option value="DOS_MESES">{{'lifestudiesApp6App.Duraciond.DOS_MESES' | translate}}</option>
+                        <option value="TRES_MESES">{{'lifestudiesApp6App.Duraciond.TRES_MESES' | translate}}</option>
+                        <option value="CUATRO_MESES">{{'lifestudiesApp6App.Duraciond.CUATRO_MESES' | translate}}</option>
+                        <option value="CINCO_MESES">{{'lifestudiesApp6App.Duraciond.CINCO_MESES' | translate}}</option>
+                        <option value="SEIS_MESES">{{'lifestudiesApp6App.Duraciond.SEIS_MESES' | translate}}</option>
+                        <option value="SIETE_MESES">{{'lifestudiesApp6App.Duraciond.SIETE_MESES' | translate}}</option>
+                        <option value="OCHO_MESES">{{'lifestudiesApp6App.Duraciond.OCHO_MESES' | translate}}</option>
+                        <option value="NUEVE_MESES">{{'lifestudiesApp6App.Duraciond.NUEVE_MESES' | translate}}</option>
+                        <option value="DIEZ_MESES">{{'lifestudiesApp6App.Duraciond.DIEZ_MESES' | translate}}</option>
+                        <option value="ONCE_MESES">{{'lifestudiesApp6App.Duraciond.ONCE_MESES' | translate}}</option>
+                        <option value="DOCE_MESES">{{'lifestudiesApp6App.Duraciond.DOCE_MESES' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.nacionalidadPrincipal" for="field_nacionalidadPrincipal">Nacionalidad Principal</label>
+                    <select class="form-control" name="nacionalidadPrincipal" formControlName="nacionalidadPrincipal" id="field_nacionalidadPrincipal">
+                        <option value="Argentina">{{'lifestudiesApp6App.Nacionalidadd.Argentina' | translate}}</option>
+                        <option value="Bolivia">{{'lifestudiesApp6App.Nacionalidadd.Bolivia' | translate}}</option>
+                        <option value="Brasil">{{'lifestudiesApp6App.Nacionalidadd.Brasil' | translate}}</option>
+                        <option value="Chile">{{'lifestudiesApp6App.Nacionalidadd.Chile' | translate}}</option>
+                        <option value="Colombia">{{'lifestudiesApp6App.Nacionalidadd.Colombia' | translate}}</option>
+                        <option value="Costa_Rica">{{'lifestudiesApp6App.Nacionalidadd.Costa_Rica' | translate}}</option>
+                        <option value="Ecuador">{{'lifestudiesApp6App.Nacionalidadd.Ecuador' | translate}}</option>
+                        <option value="Guatemala">{{'lifestudiesApp6App.Nacionalidadd.Guatemala' | translate}}</option>
+                        <option value="Honduras">{{'lifestudiesApp6App.Nacionalidadd.Honduras' | translate}}</option>
+                        <option value="Mexico">{{'lifestudiesApp6App.Nacionalidadd.Mexico' | translate}}</option>
+                        <option value="Nicaragua">{{'lifestudiesApp6App.Nacionalidadd.Nicaragua' | translate}}</option>
+                        <option value="Panama">{{'lifestudiesApp6App.Nacionalidadd.Panama' | translate}}</option>
+                        <option value="Paraguay">{{'lifestudiesApp6App.Nacionalidadd.Paraguay' | translate}}</option>
+                        <option value="Peru">{{'lifestudiesApp6App.Nacionalidadd.Peru' | translate}}</option>
+                        <option value="Uruguay">{{'lifestudiesApp6App.Nacionalidadd.Uruguay' | translate}}</option>
+                        <option value="Venezuela">{{'lifestudiesApp6App.Nacionalidadd.Venezuela' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.otraNacionalidad" for="field_otraNacionalidad">Otra Nacionalidad</label>
+                    <select class="form-control" name="otraNacionalidad" formControlName="otraNacionalidad" id="field_otraNacionalidad">
+                        <option value="Argentina">{{'lifestudiesApp6App.Nacionalidadd.Argentina' | translate}}</option>
+                        <option value="Bolivia">{{'lifestudiesApp6App.Nacionalidadd.Bolivia' | translate}}</option>
+                        <option value="Brasil">{{'lifestudiesApp6App.Nacionalidadd.Brasil' | translate}}</option>
+                        <option value="Chile">{{'lifestudiesApp6App.Nacionalidadd.Chile' | translate}}</option>
+                        <option value="Colombia">{{'lifestudiesApp6App.Nacionalidadd.Colombia' | translate}}</option>
+                        <option value="Costa_Rica">{{'lifestudiesApp6App.Nacionalidadd.Costa_Rica' | translate}}</option>
+                        <option value="Ecuador">{{'lifestudiesApp6App.Nacionalidadd.Ecuador' | translate}}</option>
+                        <option value="Guatemala">{{'lifestudiesApp6App.Nacionalidadd.Guatemala' | translate}}</option>
+                        <option value="Honduras">{{'lifestudiesApp6App.Nacionalidadd.Honduras' | translate}}</option>
+                        <option value="Mexico">{{'lifestudiesApp6App.Nacionalidadd.Mexico' | translate}}</option>
+                        <option value="Nicaragua">{{'lifestudiesApp6App.Nacionalidadd.Nicaragua' | translate}}</option>
+                        <option value="Panama">{{'lifestudiesApp6App.Nacionalidadd.Panama' | translate}}</option>
+                        <option value="Paraguay">{{'lifestudiesApp6App.Nacionalidadd.Paraguay' | translate}}</option>
+                        <option value="Peru">{{'lifestudiesApp6App.Nacionalidadd.Peru' | translate}}</option>
+                        <option value="Uruguay">{{'lifestudiesApp6App.Nacionalidadd.Uruguay' | translate}}</option>
+                        <option value="Venezuela">{{'lifestudiesApp6App.Nacionalidadd.Venezuela' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.fechaNacimiento" for="field_fechaNacimiento">Fecha Nacimiento</label>
+                    <div class="input-group">
+                        <input id="field_fechaNacimiento" type="text" class="form-control" name="fechaNacimiento" ngbDatepicker  #fechaNacimientoDp="ngbDatepicker" formControlName="fechaNacimiento"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaNacimientoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.genero" for="field_genero">Genero</label>
+                    <select class="form-control" name="genero" formControlName="genero" id="field_genero">
+                        <option value="Hombre">{{'lifestudiesApp6App.Generod.Hombre' | translate}}</option>
+                        <option value="Mujer">{{'lifestudiesApp6App.Generod.Mujer' | translate}}</option>
+                        <option value="LBGTI">{{'lifestudiesApp6App.Generod.LBGTI' | translate}}</option>
+                        <option value="Indeterminado">{{'lifestudiesApp6App.Generod.Indeterminado' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.estadoCivil" for="field_estadoCivil">Estado Civil</label>
+                    <select class="form-control" name="estadoCivil" formControlName="estadoCivil" id="field_estadoCivil">
+                        <option value="Soltero">{{'lifestudiesApp6App.EstadoCivild.Soltero' | translate}}</option>
+                        <option value="Casado">{{'lifestudiesApp6App.EstadoCivild.Casado' | translate}}</option>
+                        <option value="Viudo">{{'lifestudiesApp6App.EstadoCivild.Viudo' | translate}}</option>
+                        <option value="Separado">{{'lifestudiesApp6App.EstadoCivild.Separado' | translate}}</option>
+                        <option value="Union_Libre">{{'lifestudiesApp6App.EstadoCivild.Union_Libre' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.viajaAcompanado" for="field_viajaAcompanado">Viaja Acompanado</label>
+                    <input type="checkbox" class="form-control" name="viajaAcompanado" id="field_viajaAcompanado"
+                           formControlName="viajaAcompanado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.personasCargo" for="field_personasCargo">Personas Cargo</label>
+                    <select class="form-control" name="personasCargo" formControlName="personasCargo" id="field_personasCargo">
+                        <option value="NINGUNA">{{'lifestudiesApp6App.PersonasCargod.NINGUNA' | translate}}</option>
+                        <option value="UNA">{{'lifestudiesApp6App.PersonasCargod.UNA' | translate}}</option>
+                        <option value="DOS">{{'lifestudiesApp6App.PersonasCargod.DOS' | translate}}</option>
+                        <option value="TRES">{{'lifestudiesApp6App.PersonasCargod.TRES' | translate}}</option>
+                        <option value="MAS_DE_CUATRO">{{'lifestudiesApp6App.PersonasCargod.MAS_DE_CUATRO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.nivelAcademico" for="field_nivelAcademico">Nivel Academico</label>
+                    <select class="form-control" name="nivelAcademico" formControlName="nivelAcademico" id="field_nivelAcademico">
+                        <option value="PRIMARIA">{{'lifestudiesApp6App.NivelAcademicod.PRIMARIA' | translate}}</option>
+                        <option value="SECUNDARIA">{{'lifestudiesApp6App.NivelAcademicod.SECUNDARIA' | translate}}</option>
+                        <option value="PREGRADO">{{'lifestudiesApp6App.NivelAcademicod.PREGRADO' | translate}}</option>
+                        <option value="POSGRADO">{{'lifestudiesApp6App.NivelAcademicod.POSGRADO' | translate}}</option>
+                        <option value="DOCTORADO">{{'lifestudiesApp6App.NivelAcademicod.DOCTORADO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.profesion" for="field_profesion">Profesion</label>
+                    <input type="text" class="form-control" name="profesion" id="field_profesion"
+                           formControlName="profesion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.fechaGadruacion" for="field_fechaGadruacion">Fecha Gadruacion</label>
+                    <div class="input-group">
+                        <input id="field_fechaGadruacion" type="text" class="form-control" name="fechaGadruacion" ngbDatepicker  #fechaGadruacionDp="ngbDatepicker" formControlName="fechaGadruacion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaGadruacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.ocupacionActual" for="field_ocupacionActual">Ocupacion Actual</label>
+                    <select class="form-control" name="ocupacionActual" formControlName="ocupacionActual" id="field_ocupacionActual">
+                        <option value="Estudiante">{{'lifestudiesApp6App.OcupacionActuald.Estudiante' | translate}}</option>
+                        <option value="Estudiante_Graduado_sin_Laborar">{{'lifestudiesApp6App.OcupacionActuald.Estudiante_Graduado_sin_Laborar' | translate}}</option>
+                        <option value="Empleado">{{'lifestudiesApp6App.OcupacionActuald.Empleado' | translate}}</option>
+                        <option value="Independiente">{{'lifestudiesApp6App.OcupacionActuald.Independiente' | translate}}</option>
+                        <option value="Desempleado">{{'lifestudiesApp6App.OcupacionActuald.Desempleado' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.carta" for="field_carta">Carta</label>
+                    <input type="checkbox" class="form-control" name="carta" id="field_carta"
+                           formControlName="carta"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.suspendidoEstudios" for="field_suspendidoEstudios">Suspendido Estudios</label>
+                    <input type="checkbox" class="form-control" name="suspendidoEstudios" id="field_suspendidoEstudios"
+                           formControlName="suspendidoEstudios"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.peridoSupencionEstu" for="field_peridoSupencionEstu">Perido Supencion Estu</label>
+                    <select class="form-control" name="peridoSupencionEstu" formControlName="peridoSupencionEstu" id="field_peridoSupencionEstu">
+                        <option value="SEIS_MESES">{{'lifestudiesApp6App.PeridoSupencionEstud.SEIS_MESES' | translate}}</option>
+                        <option value="UN_ANO">{{'lifestudiesApp6App.PeridoSupencionEstud.UN_ANO' | translate}}</option>
+                        <option value="DOS_ANOS">{{'lifestudiesApp6App.PeridoSupencionEstud.DOS_ANOS' | translate}}</option>
+                        <option value="MAS_DOS_ANOS">{{'lifestudiesApp6App.PeridoSupencionEstud.MAS_DOS_ANOS' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.razonSuspencion" for="field_razonSuspencion">Razon Suspencion</label>
+                    <input type="text" class="form-control" name="razonSuspencion" id="field_razonSuspencion"
+                           formControlName="razonSuspencion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.tipoContrato" for="field_tipoContrato">Tipo Contrato</label>
+                    <select class="form-control" name="tipoContrato" formControlName="tipoContrato" id="field_tipoContrato">
+                        <option value="TERMINO_FIJO">{{'lifestudiesApp6App.TipoContratod.TERMINO_FIJO' | translate}}</option>
+                        <option value="TERMINO_INDEFNIDO">{{'lifestudiesApp6App.TipoContratod.TERMINO_INDEFNIDO' | translate}}</option>
+                        <option value="PRESTACION_SERVICIOS">{{'lifestudiesApp6App.TipoContratod.PRESTACION_SERVICIOS' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.licenciaLaboral" for="field_licenciaLaboral">Licencia Laboral</label>
+                    <input type="checkbox" class="form-control" name="licenciaLaboral" id="field_licenciaLaboral"
+                           formControlName="licenciaLaboral"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.nivelSalarial" for="field_nivelSalarial">Nivel Salarial</label>
+                    <select class="form-control" name="nivelSalarial" formControlName="nivelSalarial" id="field_nivelSalarial">
+                        <option value="MENOS_US600">{{'lifestudiesApp6App.NivelSalariald.MENOS_US600' | translate}}</option>
+                        <option value="US700_US1000">{{'lifestudiesApp6App.NivelSalariald.US700_US1000' | translate}}</option>
+                        <option value="US1000_US1500">{{'lifestudiesApp6App.NivelSalariald.US1000_US1500' | translate}}</option>
+                        <option value="US1500_US2000">{{'lifestudiesApp6App.NivelSalariald.US1500_US2000' | translate}}</option>
+                        <option value="SUPERIOR_US2000">{{'lifestudiesApp6App.NivelSalariald.SUPERIOR_US2000' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.tipoLaborIndependiente" for="field_tipoLaborIndependiente">Tipo Labor Independiente</label>
+                    <select class="form-control" name="tipoLaborIndependiente" formControlName="tipoLaborIndependiente" id="field_tipoLaborIndependiente">
+                        <option value="PROFESIONAL_CUENTA_PROPIA">{{'lifestudiesApp6App.TipoLaborIndependiented.PROFESIONAL_CUENTA_PROPIA' | translate}}</option>
+                        <option value="ESTABLECIMIENTO_COMERCIO">{{'lifestudiesApp6App.TipoLaborIndependiented.ESTABLECIMIENTO_COMERCIO' | translate}}</option>
+                        <option value="CONTRATO_PRESTACION_SERVICIOS">{{'lifestudiesApp6App.TipoLaborIndependiented.CONTRATO_PRESTACION_SERVICIOS' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.tiempoIndependiente" for="field_tiempoIndependiente">Tiempo Independiente</label>
+                    <select class="form-control" name="tiempoIndependiente" formControlName="tiempoIndependiente" id="field_tiempoIndependiente">
+                        <option value="SEIS_MESES">{{'lifestudiesApp6App.PeridoSupencionEstud.SEIS_MESES' | translate}}</option>
+                        <option value="UN_ANO">{{'lifestudiesApp6App.PeridoSupencionEstud.UN_ANO' | translate}}</option>
+                        <option value="DOS_ANOS">{{'lifestudiesApp6App.PeridoSupencionEstud.DOS_ANOS' | translate}}</option>
+                        <option value="MAS_DOS_ANOS">{{'lifestudiesApp6App.PeridoSupencionEstud.MAS_DOS_ANOS' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.nivelIngresosIndependiente" for="field_nivelIngresosIndependiente">Nivel Ingresos Independiente</label>
+                    <select class="form-control" name="nivelIngresosIndependiente" formControlName="nivelIngresosIndependiente" id="field_nivelIngresosIndependiente">
+                        <option value="MENOS_US600">{{'lifestudiesApp6App.NivelSalariald.MENOS_US600' | translate}}</option>
+                        <option value="US700_US1000">{{'lifestudiesApp6App.NivelSalariald.US700_US1000' | translate}}</option>
+                        <option value="US1000_US1500">{{'lifestudiesApp6App.NivelSalariald.US1000_US1500' | translate}}</option>
+                        <option value="US1500_US2000">{{'lifestudiesApp6App.NivelSalariald.US1500_US2000' | translate}}</option>
+                        <option value="SUPERIOR_US2000">{{'lifestudiesApp6App.NivelSalariald.SUPERIOR_US2000' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.tiempoDesempleado" for="field_tiempoDesempleado">Tiempo Desempleado</label>
+                    <select class="form-control" name="tiempoDesempleado" formControlName="tiempoDesempleado" id="field_tiempoDesempleado">
+                        <option value="SEIS_MESES">{{'lifestudiesApp6App.PeridoSupencionEstud.SEIS_MESES' | translate}}</option>
+                        <option value="UN_ANO">{{'lifestudiesApp6App.PeridoSupencionEstud.UN_ANO' | translate}}</option>
+                        <option value="DOS_ANOS">{{'lifestudiesApp6App.PeridoSupencionEstud.DOS_ANOS' | translate}}</option>
+                        <option value="MAS_DOS_ANOS">{{'lifestudiesApp6App.PeridoSupencionEstud.MAS_DOS_ANOS' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.quienFinanciaEstudios" for="field_quienFinanciaEstudios">Quien Financia Estudios</label>
+                    <select class="form-control" name="quienFinanciaEstudios" formControlName="quienFinanciaEstudios" id="field_quienFinanciaEstudios">
+                        <option value="Tu_mismo">{{'lifestudiesApp6App.QuienFinanciaEstudiosd.Tu_mismo' | translate}}</option>
+                        <option value="Un_familiar">{{'lifestudiesApp6App.QuienFinanciaEstudiosd.Un_familiar' | translate}}</option>
+                        <option value="Empleador">{{'lifestudiesApp6App.QuienFinanciaEstudiosd.Empleador' | translate}}</option>
+                        <option value="Beca_total">{{'lifestudiesApp6App.QuienFinanciaEstudiosd.Beca_total' | translate}}</option>
+                        <option value="Beca_Parcial">{{'lifestudiesApp6App.QuienFinanciaEstudiosd.Beca_Parcial' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.parentesco" for="field_parentesco">Parentesco</label>
+                    <select class="form-control" name="parentesco" formControlName="parentesco" id="field_parentesco">
+                        <option value="Padre_Madre">{{'lifestudiesApp6App.Parentescod.Padre_Madre' | translate}}</option>
+                        <option value="Hermano">{{'lifestudiesApp6App.Parentescod.Hermano' | translate}}</option>
+                        <option value="Abuelos">{{'lifestudiesApp6App.Parentescod.Abuelos' | translate}}</option>
+                        <option value="Tios">{{'lifestudiesApp6App.Parentescod.Tios' | translate}}</option>
+                        <option value="Otros">{{'lifestudiesApp6App.Parentescod.Otros' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.presupuestoDisponible" for="field_presupuestoDisponible">Presupuesto Disponible</label>
+                    <select class="form-control" name="presupuestoDisponible" formControlName="presupuestoDisponible" id="field_presupuestoDisponible">
+                        <option value="MENOS_US600">{{'lifestudiesApp6App.NivelSalariald.MENOS_US600' | translate}}</option>
+                        <option value="US700_US1000">{{'lifestudiesApp6App.NivelSalariald.US700_US1000' | translate}}</option>
+                        <option value="US1000_US1500">{{'lifestudiesApp6App.NivelSalariald.US1000_US1500' | translate}}</option>
+                        <option value="US1500_US2000">{{'lifestudiesApp6App.NivelSalariald.US1500_US2000' | translate}}</option>
+                        <option value="SUPERIOR_US2000">{{'lifestudiesApp6App.NivelSalariald.SUPERIOR_US2000' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.ahorroDisponible" for="field_ahorroDisponible">Ahorro Disponible</label>
+                    <input type="checkbox" class="form-control" name="ahorroDisponible" id="field_ahorroDisponible"
+                           formControlName="ahorroDisponible"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.idioma" for="field_idioma">Idioma</label>
+                    <input type="checkbox" class="form-control" name="idioma" id="field_idioma"
+                           formControlName="idioma"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.certificarIdioma" for="field_certificarIdioma">Certificar Idioma</label>
+                    <input type="checkbox" class="form-control" name="certificarIdioma" id="field_certificarIdioma"
+                           formControlName="certificarIdioma"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.certificacionIdioma" for="field_certificacionIdioma">Certificacion Idioma</label>
+                    <input type="text" class="form-control" name="certificacionIdioma" id="field_certificacionIdioma"
+                           formControlName="certificacionIdioma"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.puntajeCertificacion" for="field_puntajeCertificacion">Puntaje Certificacion</label>
+                    <input type="text" class="form-control" name="puntajeCertificacion" id="field_puntajeCertificacion"
+                           formControlName="puntajeCertificacion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.salidasPais" for="field_salidasPais">Salidas Pais</label>
+                    <input type="text" class="form-control" name="salidasPais" id="field_salidasPais"
+                           formControlName="salidasPais"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.paisesVisitados" for="field_paisesVisitados">Paises Visitados</label>
+                    <input type="text" class="form-control" name="paisesVisitados" id="field_paisesVisitados"
+                           formControlName="paisesVisitados"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.visaPais" for="field_visaPais">Visa Pais</label>
+                    <input type="text" class="form-control" name="visaPais" id="field_visaPais"
+                           formControlName="visaPais"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.estudiadoAnterior" for="field_estudiadoAnterior">Estudiado Anterior</label>
+                    <input type="checkbox" class="form-control" name="estudiadoAnterior" id="field_estudiadoAnterior"
+                           formControlName="estudiadoAnterior"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.fueraPais" for="field_fueraPais">Fuera Pais</label>
+                    <input type="checkbox" class="form-control" name="fueraPais" id="field_fueraPais"
+                           formControlName="fueraPais"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.paisFuera" for="field_paisFuera">Pais Fuera</label>
+                    <input type="text" class="form-control" name="paisFuera" id="field_paisFuera"
+                           formControlName="paisFuera"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.extenderEstadia" for="field_extenderEstadia">Extender Estadia</label>
+                    <input type="checkbox" class="form-control" name="extenderEstadia" id="field_extenderEstadia"
+                           formControlName="extenderEstadia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.negadoVisa" for="field_negadoVisa">Negado Visa</label>
+                    <input type="checkbox" class="form-control" name="negadoVisa" id="field_negadoVisa"
+                           formControlName="negadoVisa"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.paisNegado" for="field_paisNegado">Pais Negado</label>
+                    <input type="text" class="form-control" name="paisNegado" id="field_paisNegado"
+                           formControlName="paisNegado"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.familiaresDestino" for="field_familiaresDestino">Familiares Destino</label>
+                    <input type="checkbox" class="form-control" name="familiaresDestino" id="field_familiaresDestino"
+                           formControlName="familiaresDestino"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.estatusMigratorio" for="field_estatusMigratorio">Estatus Migratorio</label>
+                    <input type="text" class="form-control" name="estatusMigratorio" id="field_estatusMigratorio"
+                           formControlName="estatusMigratorio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.apelliod" for="field_apelliod">Apelliod</label>
+                    <input type="text" class="form-control" name="apelliod" id="field_apelliod"
+                           formControlName="apelliod"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="lifestudiesApp6App.viabilidadVisa.correo" for="field_correo">Correo</label>
+                    <input type="text" class="form-control" name="correo" id="field_correo"
+                           formControlName="correo"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

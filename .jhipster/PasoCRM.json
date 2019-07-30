@@ -1,0 +1,33 @@
+{
+    "name": "PasoCRM",
+    "fields": [
+        {
+            "fieldName": "codigo",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "duracionDias",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "Estadod",
+            "fieldValues": "Pendiente,EnProceso,Finalizado,Expirado"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190730133934",
+    "entityTableName": "paso_crm",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

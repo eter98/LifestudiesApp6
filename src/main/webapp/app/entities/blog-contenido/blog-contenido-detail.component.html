@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="blogContenido">
+            <h2><span jhiTranslate="lifestudiesApp6App.blogContenido.detail.title">Blog Contenido</span> {{blogContenido.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{blogContenido.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.apellido">Apellido</span></dt>
+                <dd>
+                    <span>{{blogContenido.apellido}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.correo">Correo</span></dt>
+                <dd>
+                    <span>{{blogContenido.correo}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.nacionalidad">Nacionalidad</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lifestudiesApp6App.Nacionalidadd.' + blogContenido.nacionalidad}}">{{blogContenido.nacionalidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.paisEstudio">Pais Estudio</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'lifestudiesApp6App.Destinod.' + blogContenido.paisEstudio}}">{{blogContenido.paisEstudio}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.calificacionPais">Calificacion Pais</span></dt>
+                <dd>
+                    <span>{{blogContenido.calificacionPais}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.ciudadVive">Ciudad Vive</span></dt>
+                <dd>
+                    <span>{{blogContenido.ciudadVive}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.calificacionCiudad">Calificacion Ciudad</span></dt>
+                <dd>
+                    <span>{{blogContenido.calificacionCiudad}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.programaRealizado">Programa Realizado</span></dt>
+                <dd>
+                    <span>{{blogContenido.programaRealizado}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.institucionEstudio">Institucion Estudio</span></dt>
+                <dd>
+                    <span>{{blogContenido.institucionEstudio}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.calificacionInstitucion">Calificacion Institucion</span></dt>
+                <dd>
+                    <span>{{blogContenido.calificacionInstitucion}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.agenciaEstudios">Agencia Estudios</span></dt>
+                <dd>
+                    <span>{{blogContenido.agenciaEstudios}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.nombreAgencia">Nombre Agencia</span></dt>
+                <dd>
+                    <span>{{blogContenido.nombreAgencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.calificacionAgencia">Calificacion Agencia</span></dt>
+                <dd>
+                    <span>{{blogContenido.calificacionAgencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.calificacionExperienciaEstudio">Calificacion Experiencia Estudio</span></dt>
+                <dd>
+                    <span>{{blogContenido.calificacionExperienciaEstudio}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{blogContenido.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.titulo">Titulo</span></dt>
+                <dd>
+                    <span>{{blogContenido.titulo}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.imagen">Imagen</span></dt>
+                <dd>
+                    <div *ngIf="blogContenido.imagen">
+                        <a (click)="openFile(blogContenido.imagenContentType, blogContenido.imagen)">
+                            <img [src]="'data:' + blogContenido.imagenContentType + ';base64,' + blogContenido.imagen" style="max-width: 100%;" alt="blogContenido image"/>
+                        </a>
+                        {{blogContenido.imagenContentType}}, {{byteSize(blogContenido.imagen)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.contenido">Contenido</span></dt>
+                <dd>
+                    <span>{{blogContenido.contenido}}</span>
+                </dd>
+                <dt><span jhiTranslate="lifestudiesApp6App.blogContenido.usuario">Usuario</span></dt>
+                <dd>
+                    {{blogContenido.usuario?.login}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/blog-contenido', blogContenido.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

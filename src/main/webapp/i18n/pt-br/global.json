@@ -7,6 +7,20 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entidades",
+        "institucion": "Institucion",
+        "programas": "Programas",
+        "tipoPrograma": "Tipo Programa",
+        "cotizacion": "Cotizacion",
+        "perfilUsuario": "Perfil Usuario",
+        "agencia": "Agencia",
+        "pais": "Pais",
+        "ciudad": "Ciudad",
+        "viabilidadVisa": "Viabilidad Visa",
+        "blogContenido": "Blog Contenido",
+        "comentarioBlog": "Comentario Blog",
+        "crm": "CRM",
+        "pasoCrm": "Paso CRM",
+        "experiencia": "Experiencia",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
